@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>LoginViewModule/LoginView.qml</file>
+        <file>LoginViewModule/qmldir</file>
+        <file>LoginViewModule/LVMSwitch.qml</file>
+        <file>LoginViewModule/LVMHeader.qml</file>
+        <file>LoginViewModule/LVMTextInput.qml</file>
+        <file>LoginViewModule/LVMComboBox.qml</file>
+        <file>LoginViewModule/LVMCheckBox.qml</file>
+        <file>LoginViewModule/LVMButton.qml</file>
+    </qresource>
+</RCC>

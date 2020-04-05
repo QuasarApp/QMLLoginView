@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<countries>
+    <country>
+        <code>375</code>
+        <name>Belarus</name>
+    </country>
+    <country>
+        <code>7</code>
+        <name>Russia</name>
+    </country>
+    <country>
+        <code>33</code>
+        <name>France</name>
+    </country>
+</countries>

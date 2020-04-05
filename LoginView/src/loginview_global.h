@@ -1,0 +1,13 @@
+#ifndef NOTIFYSERVICE_GLOBAL_H
+#define NOTIFYSERVICE_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(QMLNOTYFYSERICE_LIBRARY)
+#  define LOGINVIEW_EXPORT Q_DECL_EXPORT
+#else
+#  define LOGINVIEW_EXPORT Q_DECL_IMPORT
+#endif
+
+
+#endif // NOTIFYSERVICE_GLOBAL_H
