@@ -7,6 +7,7 @@
 
 class QXmlStreamReader;
 class QQmlApplicationEngine;
+class CountrysParser;
 
 class LOGINVIEW_EXPORT LoginViewModel : public QObject
 {
@@ -18,6 +19,7 @@ class LOGINVIEW_EXPORT LoginViewModel : public QObject
 public:
     explicit LoginViewModel(const QString modelName,
                             QObject *parent = nullptr);
+    ~LoginViewModel();
     /**
      * @brief setCounrySource - sets path to xml source file and extract list of countrys
      * @param path
@@ -43,11 +45,8 @@ signals:
     void countryListChanged();
 
 private:
-    int getCode(QXmlStreamReader &xml);
-    QString getName(QXmlStreamReader &xml);
 
-    bool parseCountry(QXmlStreamReader &xml);
-
+    CountrysParser *m_countrysParser = nullptr;
     QString m_modelName;
     int m_country;
     QHash<int, QString> m_countryList;

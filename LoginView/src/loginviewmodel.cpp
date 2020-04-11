@@ -1,5 +1,5 @@
+#include "countrysparser.h"
 #include "loginviewmodel.h"
-#include <QFile>
 #include <QXmlStreamReader>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -10,88 +10,19 @@ LoginViewModel::LoginViewModel(const QString modelName, QObject *parent)
     m_modelName = modelName;
 }
 
-int LoginViewModel::getCode(QXmlStreamReader &xml) {
-    if (xml.tokenType() != QXmlStreamReader::StartElement)
-        return -1;
-
-    while (xml.readNext() != QXmlStreamReader::Characters && !xml.hasError());
-
-    bool ok;
-    int res = xml.text().toInt(&ok);
-
-    if (ok)
-        return res;
-
-    return -1;
-}
-
-QString LoginViewModel::getName(QXmlStreamReader &xml) {
-    if (xml.tokenType() != QXmlStreamReader::StartElement)
-        return "";
-
-    while (xml.readNext() != QXmlStreamReader::Characters && !xml.hasError());
-
-    return xml.text().toString();
-}
-
-bool LoginViewModel::parseCountry(QXmlStreamReader& xml) {
-    if (xml.tokenType() != QXmlStreamReader::StartElement)
-        return "";
-
-    int code = 0;
-    QString name;
-    while (!(xml.readNext() == QXmlStreamReader::EndElement && xml.name() == "country")) {
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "code") {
-            code = getCode(xml);
-            if (code < 0) {
-                qDebug() << "error parse, code of country is invalid: line " << xml.lineNumber();
-                return false;
-            }
-        } else if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "name") {
-            name = getName(xml);
-            if (name.isEmpty()) {
-                qDebug() << "error parse, name of country is empty: line " << xml.lineNumber();
-                return false;
-            }
-        }
+LoginViewModel::~LoginViewModel() {
+    if (m_countrysParser) {
+        delete m_countrysParser;
     }
-
-    m_countryList[code] = name;
-    return true;
 }
 
 bool LoginViewModel::setCounrySource(const QString &path) {
-    QFile file(path);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        return false;
+
+    if (!m_countrysParser) {
+        m_countrysParser = new CountrysParser();
     }
 
-    QXmlStreamReader xml(&file);
-
-    m_countryList.clear();
-
-    while (!xml.atEnd()) {
-
-        if (xml.hasError()){
-            qDebug() << "error parse file: line " << xml.lineNumber();
-            file.close();
-            return false;
-        }
-
-        QXmlStreamReader::TokenType token = xml.readNext();
-        if (xml.name() == "countriyes" && token == QXmlStreamReader::EndElement) {
-            break;
-        }
-
-        if (token == QXmlStreamReader::StartElement) {
-            if (xml.name() == "country" && !parseCountry(xml)) {
-                file.close();
-                return false;
-            }
-        }
-    }
-
-    file.close();
+    m_countrysParser->parseXMLSource(path, m_countryList);
 
     emit countryListChanged();
     return true;
