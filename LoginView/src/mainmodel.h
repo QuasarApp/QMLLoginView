@@ -4,22 +4,27 @@
 #include <QHash>
 #include <QObject>
 #include "loginview_global.h"
+#include "userdata.h"
 
 class QXmlStreamReader;
 class QQmlApplicationEngine;
 class CountrysParser;
 
-class LOGINVIEW_EXPORT LoginViewModel : public QObject
+namespace LoginView {
+
+
+class LOGINVIEW_EXPORT MainModel : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(QStringList countryList READ countryList NOTIFY countryListChanged)
     Q_PROPERTY(int country READ country WRITE setCountry NOTIFY countryChanged)
+    Q_PROPERTY(UserData data READ data WRITE setData NOTIFY dataChanged)
 
 public:
-    explicit LoginViewModel(const QString modelName,
+    explicit MainModel(const QString modelName,
                             QObject *parent = nullptr);
-    ~LoginViewModel();
+    ~MainModel();
     /**
      * @brief setCounrySource - sets path to xml source file and extract list of countrys
      * @param path
@@ -36,20 +41,31 @@ public:
 
     int country() const;
     QStringList countryList() const;
+    UserData data() const;
 
 public slots:
     void setCountry(int country);
 
+    void setData(UserData data);
+
 signals:
     void countryChanged(int country);
     void countryListChanged();
+    void sigLoginRequest(UserData);
+    void sigRegisterRequest(UserData);
+
+    void dataChanged(UserData data);
 
 private:
+
+    bool isValidData(const UserData &data);
 
     CountrysParser *m_countrysParser = nullptr;
     QString m_modelName;
     int m_country;
     QHash<int, QString> m_countryList;
+    UserData m_data;
 };
 
+}
 #endif // LOGINVIEWMODEL_H

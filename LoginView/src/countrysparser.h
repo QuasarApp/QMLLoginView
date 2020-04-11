@@ -5,6 +5,8 @@
 
 class QXmlStreamReader;
 
+namespace LoginView {
+
 class CountrysParser
 {
 public:
@@ -20,5 +22,7 @@ private:
     bool parseCountries(QXmlStreamReader &xml, QHash<int, QString>& result);
     bool isValidItem(QXmlStreamReader &xml);
 };
+
+}
 
 #endif // COUNTRYSPARSER_H

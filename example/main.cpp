@@ -1,6 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <loginviewmodel.h>
+#include <mainmodel.h>
 #include <QQuickStyle>
 
 int main(int argc, char *argv[])
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
     QQuickStyle::setStyle("Universal");
-    LoginViewModel loginModel("exampleLogin");
+    LoginView::MainModel loginModel("exampleLogin");
     if (!loginModel.init(&engine)) {
         return -1;
     }

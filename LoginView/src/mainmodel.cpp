@@ -1,22 +1,25 @@
 #include "countrysparser.h"
-#include "loginviewmodel.h"
+#include "mainmodel.h"
 #include <QXmlStreamReader>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QDebug>
 
-LoginViewModel::LoginViewModel(const QString modelName, QObject *parent)
+namespace LoginView {
+
+
+MainModel::MainModel(const QString modelName, QObject *parent)
     : QObject(parent) {
     m_modelName = modelName;
 }
 
-LoginViewModel::~LoginViewModel() {
+MainModel::~MainModel() {
     if (m_countrysParser) {
         delete m_countrysParser;
     }
 }
 
-bool LoginViewModel::setCounrySource(const QString &path) {
+bool MainModel::setCounrySource(const QString &path) {
 
     if (!m_countrysParser) {
         m_countrysParser = new CountrysParser();
@@ -28,7 +31,7 @@ bool LoginViewModel::setCounrySource(const QString &path) {
     return true;
 }
 
-bool LoginViewModel::init( QQmlApplicationEngine *engine) {
+bool MainModel::init( QQmlApplicationEngine *engine) {
     if (!engine)
         return false;
 
@@ -46,15 +49,19 @@ bool LoginViewModel::init( QQmlApplicationEngine *engine) {
     return true;
 }
 
-int LoginViewModel::country() const {
+int MainModel::country() const {
     return m_country;
 }
 
-QStringList LoginViewModel::countryList() const {
+QStringList MainModel::countryList() const {
     return m_countryList.values();
 }
 
-void LoginViewModel::setCountry(int country) {
+UserData MainModel::data() const {
+    return m_data;
+}
+
+void MainModel::setCountry(int country) {
     if (m_country == country)
         return;
 
@@ -62,3 +69,18 @@ void LoginViewModel::setCountry(int country) {
     emit countryListChanged();
 }
 
+void MainModel::setData(UserData data) {
+    if (m_data == data)
+        return;
+
+    m_data = data;
+    emit dataChanged(m_data);
+}
+
+bool MainModel::isValidData(const UserData& data) {
+
+
+    return true;
+}
+
+}

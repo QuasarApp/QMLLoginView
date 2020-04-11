@@ -2,6 +2,7 @@
 #include "QDebug"
 #include <QFile>
 #include <QXmlStreamReader>
+namespace LoginView {
 
 CountrysParser::CountrysParser() {
 
@@ -82,13 +83,15 @@ bool CountrysParser::parseCountry(QXmlStreamReader& xml, QHash<int, QString>& re
         if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "code") {
             code = getCode(xml);
             if (code < 0) {
-                qDebug() << "error parse, code of country is invalid: line " << xml.lineNumber();
+                qDebug() << "error parse, code of country is invalid: line "
+                         << xml.lineNumber();
                 return false;
             }
         } else if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "name") {
             name = getName(xml);
             if (name.isEmpty()) {
-                qDebug() << "error parse, name of country is empty: line " << xml.lineNumber();
+                qDebug() << "error parse, name of country is empty: line "
+                         << xml.lineNumber();
                 return false;
             }
         }
@@ -115,4 +118,6 @@ bool CountrysParser::parseCountries(QXmlStreamReader &xml, QHash<int, QString>& 
     }
 
     return true;
+}
+
 }
