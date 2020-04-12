@@ -8,18 +8,20 @@ Control {
 
     height: 110
 
-    property string help: qsTr('please fill this form to create an account')
+    property string title: ""
+    property string help: ""
     property bool lightMode: themeSwitch.lightMode
 
     ColumnLayout {
         LVMSwitch {
             id: themeSwitch
+            text: qsTr("Light theme");
             Layout.alignment: Qt.AlignRight
             Layout.preferredHeight: 30
         }
 
         Label {
-            text: qsTr("Sign Up");
+            text: title;
             font.pixelSize: 24
             font.bold: true
             Layout.alignment: Qt.AlignLeft

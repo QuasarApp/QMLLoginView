@@ -8,5 +8,6 @@
         <file>LoginViewModule/LVMComboBox.qml</file>
         <file>LoginViewModule/LVMCheckBox.qml</file>
         <file>LoginViewModule/LVMButton.qml</file>
+        <file>LoginViewModule/ValidatIonIndicator.qml</file>
     </qresource>
 </RCC>

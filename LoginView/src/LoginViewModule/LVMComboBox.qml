@@ -6,6 +6,7 @@ import QtQuick.Controls.Universal 2.12
 ComboBox {
 
     property string placeholderText: ""
+    property string tooltip: "";
 
     model : (lognViewModel)? lognViewModel.countryList: []
 
@@ -20,4 +21,10 @@ ComboBox {
         color: "#bdb9bb"
     }
 
+    hoverEnabled: true
+
+    ToolTip.delay: 250
+    ToolTip.timeout: 5000
+    ToolTip.visible: hovered && tooltip.length
+    ToolTip.text: tooltip
 }

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
-    QQuickStyle::setStyle("Universal");
+    QQuickStyle::setStyle("Material");
     LoginView::MainModel loginModel("exampleLogin");
     if (!loginModel.init(&engine)) {
         return -1;

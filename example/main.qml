@@ -10,10 +10,15 @@ Window {
 
     height: 600
     width: 400
+
+    minimumHeight: 400
+    minimumWidth: 200
+
     visible: true
     LoginView {
         lognViewModel: exampleLogin
         anchors.fill: parent
     }
+
     title: qsTr("Example of LoginView")
 }

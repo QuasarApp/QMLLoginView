@@ -25,6 +25,7 @@ public:
     friend bool operator !=(const UserData& left, const UserData& right);
     friend bool operator ==(const UserData& left, const UserData& right);
 
+
 public slots:
     void setCountry(int country);
     void setFirstName(const QString& firstName);
@@ -41,7 +42,4 @@ private:
 };
 
 }
-
-Q_DECLARE_METATYPE(LoginView::UserData)
-
 #endif // USERDATA_H

@@ -11,6 +11,11 @@ enum class ValidationAddersses {
 };
 
 UserViewValidationData::UserViewValidationData() {
+    m_data = static_cast<int>(ValidationAddersses::FirstName) |
+            static_cast<int>(ValidationAddersses::Country) |
+            static_cast<int>(ValidationAddersses::LastName) |
+            static_cast<int>(ValidationAddersses::RawPassword) |
+            static_cast<int>(ValidationAddersses::Email);
 }
 
 bool UserViewValidationData::country() const {
@@ -33,24 +38,43 @@ bool UserViewValidationData::email() const {
     return m_data & static_cast<int>(ValidationAddersses::Email);
 }
 
+bool UserViewValidationData::noError() const {
+    return !m_data;
+}
+
+bool operator !=(const UserViewValidationData &left,
+                 const UserViewValidationData &right) {
+    return left.m_data != right.m_data;
+}
+
+bool operator ==(const UserViewValidationData &left,
+                 const UserViewValidationData &right) {
+    return !(left != right);
+}
+
 void UserViewValidationData::setCountry(bool country) {
-    m_data = static_cast<int>(ValidationAddersses::Country) & country;
+    m_data &= ~static_cast<int>(ValidationAddersses::Country);
+    m_data |= (static_cast<int>(ValidationAddersses::Country) * (country & 0x01));
 }
 
 void UserViewValidationData::setFirstName(bool firstName) {
-    m_data = firstName;
+    m_data &= ~static_cast<int>(ValidationAddersses::FirstName);
+    m_data |= (static_cast<int>(ValidationAddersses::FirstName) * (firstName & 0x01));
 }
 
 void UserViewValidationData::setLastName(bool lastName) {
-    m_data = lastName;
+    m_data &= ~static_cast<int>(ValidationAddersses::LastName);
+    m_data |= (static_cast<int>(ValidationAddersses::LastName) * (lastName & 0x01));
 }
 
 void UserViewValidationData::setRawPassword(bool rawPassword) {
-    m_data = rawPassword;
+    m_data &= ~static_cast<int>(ValidationAddersses::RawPassword);
+    m_data |= (static_cast<int>(ValidationAddersses::RawPassword) * (rawPassword & 0x01));
 }
 
 void UserViewValidationData::setEmail(bool email) {
-    m_data = email;
+    m_data &= ~static_cast<int>(ValidationAddersses::Email);
+    m_data |= (static_cast<int>(ValidationAddersses::Email) * (email & 0x01));
 }
 
 }

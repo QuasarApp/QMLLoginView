@@ -13,28 +13,36 @@ class UserViewValidationData
     Q_PROPERTY(bool lastName READ lastName WRITE setLastName)           // ValidationAddersses::LastName
     Q_PROPERTY(bool rawPassword READ rawPassword WRITE setRawPassword)  // ValidationAddersses::RawPassword
     Q_PROPERTY(bool email READ email WRITE setEmail)                    // ValidationAddersses::Email
+    Q_PROPERTY(bool noError READ noError)
 
 public:
     UserViewValidationData();
+    /**
+     * @return true if member has error
+     */
     bool country() const;
     bool firstName() const;
     bool lastName() const;
     bool rawPassword() const;
     bool email() const;
 
+    friend bool operator !=(const UserViewValidationData &left,
+                            const UserViewValidationData &right);
+    friend bool operator ==(const UserViewValidationData &left,
+                            const UserViewValidationData &right);
+
+    bool noError() const;
+
 public slots:
     void setCountry(bool country);
-
     void setFirstName(bool firstName);
-
     void setLastName(bool lastName);
-
     void setRawPassword(bool rawPassword);
-
     void setEmail(bool email);
 
 private:
     int m_data;
 };
 }
+
 #endif // USERVIEWVALIDATIONDATA_H
