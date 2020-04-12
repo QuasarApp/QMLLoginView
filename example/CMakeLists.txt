@@ -32,6 +32,7 @@ else()
     add_executable(${PROJECT_NAME}
       main.cpp
       qml.qrc
+      icon.rc
     )
 endif()
 
