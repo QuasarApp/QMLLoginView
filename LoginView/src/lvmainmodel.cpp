@@ -6,7 +6,7 @@
 //#
 
 #include "countrysparser.h"
-#include "mainmodel.h"
+#include "lvmainmodel.h"
 #include <QXmlStreamReader>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -15,7 +15,7 @@
 namespace LoginView {
 
 
-MainModel::MainModel(const QString modelName, QObject *parent)
+LVMainModel::LVMainModel(const QString modelName, QObject *parent)
     : QObject(parent) {
     m_modelName = modelName;
     m_validLvl = static_cast<PasswordValidationLvl>(
@@ -24,13 +24,13 @@ MainModel::MainModel(const QString modelName, QObject *parent)
                 PasswordValidationLvl::LatinLargeChars);
 }
 
-MainModel::~MainModel() {
+LVMainModel::~LVMainModel() {
     if (m_countrysParser) {
         delete m_countrysParser;
     }
 }
 
-bool MainModel::setCounrySource(const QString &path) {
+bool LVMainModel::setCounrySource(const QString &path) {
 
     if (!m_countrysParser) {
         m_countrysParser = new CountrysParser();
@@ -43,7 +43,7 @@ bool MainModel::setCounrySource(const QString &path) {
     return true;
 }
 
-bool MainModel::init( QQmlApplicationEngine *engine) {
+bool LVMainModel::init( QQmlApplicationEngine *engine) {
     if (!engine)
         return false;
 
@@ -65,27 +65,27 @@ bool MainModel::init( QQmlApplicationEngine *engine) {
     return true;
 }
 
-int MainModel::country() const {
+int LVMainModel::country() const {
     return m_country;
 }
 
-QStringList MainModel::countryList() const {
+QStringList LVMainModel::countryList() const {
     return m_countryList.values();
 }
 
-UserData MainModel::data() const {
+UserData LVMainModel::data() const {
     return m_data;
 }
 
-UserViewValidationData MainModel::validData() const {
+UserViewValidationData LVMainModel::validData() const {
     return m_validationData;
 }
 
-QString MainModel::passwordError() const {
+QString LVMainModel::passwordError() const {
     return m_passwordError;
 }
 
-void MainModel::setCountry(int country) {
+void LVMainModel::setCountry(int country) {
     if (m_country == country)
         return;
 
@@ -93,7 +93,7 @@ void MainModel::setCountry(int country) {
     emit countryListChanged();
 }
 
-void MainModel::setData(UserData data) {
+void LVMainModel::setData(UserData data) {
     if (m_data == data)
         return;
 
@@ -102,7 +102,7 @@ void MainModel::setData(UserData data) {
     emit dataChanged(m_data);
 }
 
-void MainModel::setPasswordError(QString passwordError) {
+void LVMainModel::setPasswordError(QString passwordError) {
     if (m_passwordError == passwordError)
         return;
 
@@ -110,7 +110,7 @@ void MainModel::setPasswordError(QString passwordError) {
     emit passwordErrorChanged(m_passwordError);
 }
 
-void MainModel::setValidData(UserViewValidationData validationData) {
+void LVMainModel::setValidData(UserViewValidationData validationData) {
     if (m_validationData == validationData)
         return;
 
@@ -142,7 +142,7 @@ void MainModel::setValidData(UserViewValidationData validationData) {
     emit validDataChanged(m_validationData);
 }
 
-void MainModel::checkValid(const UserData& data) {
+void LVMainModel::checkValid(const UserData& data) {
 
     UserViewValidationData result;
 
@@ -183,29 +183,29 @@ void MainModel::checkValid(const UserData& data) {
     setValidData(result);
 }
 
-QList<int> LoginView::MainModel::countryCodeList() const {
+QList<int> LoginView::LVMainModel::countryCodeList() const {
     return m_countryList.keys();
 }
 
-void MainModel::loginRequest() {
+void LVMainModel::loginRequest() {
     if (!m_validationData.email()) {
         emit sigLoginRequest(m_data);
     }
 }
 
-void MainModel::rememberPasswordRequest() {
+void LVMainModel::rememberPasswordRequest() {
     if (!m_validationData.email()) {
         emit sigForgotPasswordRequest(m_data);
     }
 }
 
-void MainModel::registerRequest() {
+void LVMainModel::registerRequest() {
     if (m_validationData.noError()) {
         emit sigRegisterRequest(m_data);
     }
 }
 
-void MainModel::showTermOfUseRequest() {
+void LVMainModel::showTermOfUseRequest() {
     emit sigShowTermOfUseRequest();
 }
 

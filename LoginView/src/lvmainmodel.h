@@ -34,7 +34,7 @@ enum PasswordValidationLvl {
     ExtraChars      = 0x10
 };
 
-class LOGINVIEW_EXPORT MainModel : public QObject
+class LOGINVIEW_EXPORT LVMainModel : public QObject
 {
     Q_OBJECT
 
@@ -47,9 +47,9 @@ class LOGINVIEW_EXPORT MainModel : public QObject
     Q_PROPERTY(QString passwordError READ passwordError WRITE setPasswordError NOTIFY passwordErrorChanged)
 
 public:
-    explicit MainModel(const QString modelName,
+    explicit LVMainModel(const QString modelName,
                             QObject *parent = nullptr);
-    ~MainModel();
+    ~LVMainModel();
     /**
      * @brief setCounrySource - sets path to xml source file and extract list of countrys
      * @param path

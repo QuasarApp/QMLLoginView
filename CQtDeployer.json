@@ -1,0 +1,11 @@
+{
+    "binDir": "./example/build/Release/bin",
+    "clear": true,
+    "libDir": "./",
+    "recursiveDepth": "5",
+    "qif": true,
+    "qifStyle": "quasar",
+    "qifLogo": "./res/logo2.png",
+    "icon": "./res/logo2.png",
+    "qmlDir": "./"
+}

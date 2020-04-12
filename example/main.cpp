@@ -6,7 +6,7 @@
 //#
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <mainmodel.h>
+#include <lvmainmodel.h>
 #include <QQuickStyle>
 
 int main(int argc, char *argv[])
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
     QQuickStyle::setStyle("Material");
-    LoginView::MainModel loginModel("exampleLogin");
+    LoginView::LVMainModel loginModel("exampleLogin");
     if (!loginModel.init(&engine)) {
         return -1;
     }

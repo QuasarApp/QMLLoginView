@@ -16,6 +16,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(LOGIN_VIEW_LIBRARY ON)
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/../CMake/ProjectOut.cmake)
+
 find_package(Qt5 COMPONENTS Core Quick Xml REQUIRED)
 
 file(GLOB SOURCE_CPP "src/*.cpp" "src/*.qrc")
