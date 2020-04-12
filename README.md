@@ -3,17 +3,20 @@ test work for Logic Way Solutions
 
 ## Introdaction
 
-This is a simple login window library for qml projects. The project is built with the help of the сmake build system and is very easily includet to existing projects.
+![logo](https://user-images.githubusercontent.com/12465465/79076393-77b55300-7d02-11ea-8128-498f954dec92.png)
+
+
+This is a simple login window library for qml projects. The project is built with the help of the сmake build system and may be easily included into existing projects.
 
 
 ## Main features
 
-1. cmake support
-2. support all qt qml [styles](https://doc.qt.io/qt-5/qtquickcontrols2-styles.html)
-3. support login users
-4. support register new users
-5. support custom country list
-6. support cqtdeployer deploy system
+1. support all qt qml [styles](https://doc.qt.io/qt-5/qtquickcontrols2-styles.html)
+2. support logining of users
+3. support registeration of new users
+4. support custom country list
+5. support cqtdeployer deploying system
+6. support cmake build system
 
 ### Screenshots
 
@@ -123,4 +126,34 @@ This is a simple login window library for qml projects. The project is built wit
     Q_PROPERTY(QString lastName READ lastName WRITE setLastName)
     Q_PROPERTY(QString rawPassword READ rawPassword WRITE setRawPassword)
     Q_PROPERTY(QString email READ email WRITE setEmail)
+```
+
+
+## Build Example 
+
+### Prepare
+1. install cqtdeployer
+2. install cqtdeployer ([gitHubRelises](https://github.com/QuasarApp/CQtDeployer/releases or [snap-store](https://snapcraft.io/cqtdeployer)))
+3. if you use snap store version of cqtdeployer add all permisions for cqdeployer.
+
+### build on Linux
+
+``` BASH
+git clone https://github.com/EndrII/QMLLoginView
+
+cd QMLLoginView
+
+cmake -DCMAKE_PREFIX_PATH=/my/Qt/Dir
+
+make -j12
+
+export PATH=$PATH:/my/Qt/Dir/bin # add to path location of qmake
+
+cqtdeployer
+
+cd Distributionkit
+
+chmod +x InstallerExampleLoginView.run
+
+./InstallerExampleLoginView.run
 ```
