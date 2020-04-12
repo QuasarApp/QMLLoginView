@@ -10,7 +10,7 @@
 
 #include <QtCore/qglobal.h>
 
-#if defined(QMLNOTYFYSERICE_LIBRARY)
+#if defined(LOGIN_VIEW_LIBRARY)
 #  define LOGINVIEW_EXPORT Q_DECL_EXPORT
 #else
 #  define LOGINVIEW_EXPORT Q_DECL_IMPORT
