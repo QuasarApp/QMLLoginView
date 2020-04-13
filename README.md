@@ -133,7 +133,7 @@ This is a simple login window library for qml projects. The project is built wit
 
 ### Prepare
 1. install cqtdeployer
-2. install cqtdeployer ([gitHubRelises](https://github.com/QuasarApp/CQtDeployer/releases or [snap-store](https://snapcraft.io/cqtdeployer)))
+2. install cqtdeployer ([gitHubRelises](https://github.com/QuasarApp/CQtDeployer/releases) or [snap-store](https://snapcraft.io/cqtdeployer)))
 3. if you use snap store version of cqtdeployer add all permisions for cqdeployer.
 
 ### build on Linux
