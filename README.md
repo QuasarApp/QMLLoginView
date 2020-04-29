@@ -1,5 +1,4 @@
 # QMLLoginView
-test work for Logic Way Solutions
 
 ## Introdaction
 
