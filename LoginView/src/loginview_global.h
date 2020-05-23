@@ -5,8 +5,8 @@
 //# of this license document, but changing it is not allowed.
 //#
 
-#ifndef NOTIFYSERVICE_GLOBAL_H
-#define NOTIFYSERVICE_GLOBAL_H
+#ifndef LOGINVIEW_GLOBAL_H
+#define LOGINVIEW_GLOBAL_H
 
 #include <QtCore/qglobal.h>
 
@@ -17,4 +17,4 @@
 #endif
 
 
-#endif // NOTIFYSERVICE_GLOBAL_H
+#endif // LOGINVIEW_GLOBAL_H

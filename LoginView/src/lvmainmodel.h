@@ -1,15 +1,17 @@
-#ifndef LOGINVIEWMODEL_H
-#define LOGINVIEWMODEL_H
-
-#include <QHash>
-#include <QObject>
-#include "loginview_global.h"
 //#
 //# Copyright (C) 2018-2020 Yankovich Andrei (EndrII).
 //# Distributed under the lgplv3 software license, see the accompanying
 //# Everyone is permitted to copy and distribute verbatim copies
 //# of this license document, but changing it is not allowed.
 //#
+
+
+#ifndef LOGINVIEWMODEL_H
+#define LOGINVIEWMODEL_H
+
+#include <QHash>
+#include <QObject>
+#include "loginview_global.h"
 
 #include "userdata.h"
 #include "userviewvalidationdata.h"
@@ -34,7 +36,7 @@ enum PasswordValidationLvl {
     ExtraChars      = 0x10
 };
 
-class LOGINVIEW_EXPORT LVMainModel : public QObject
+class LOGINVIEW_EXPORT LVMainModel: public QObject
 {
     Q_OBJECT
 

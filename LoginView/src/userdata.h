@@ -5,8 +5,8 @@
 //# of this license document, but changing it is not allowed.
 //#
 
-#ifndef USERDATA_H
-#define USERDATA_H
+#ifndef LV_USERDATA_H
+#define LV_USERDATA_H
 #include <QObject>
 #include "loginview_global.h"
 
@@ -49,4 +49,4 @@ private:
 };
 
 }
-#endif // USERDATA_H
+#endif // LV_USERDATA_H
