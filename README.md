@@ -33,7 +33,9 @@ This is a simple login window library for qml projects. The project is built wit
  * git submodule update --init --recursive
  * Include in your CMakeLists.txt file the main CMakeLists.txt file of QMLLoginView library
   ``` cmake
-    include(QMLLoginView)
+    add_subdirectory(QMLLoginView)
+    target_link_libraries(${CURRENT_PROJECT} PRIVATE LoginView)
+
   ```
  * Rebuild yuor project
 
