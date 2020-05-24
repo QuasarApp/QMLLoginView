@@ -10,29 +10,23 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Universal 2.12
+import QtQuick.Window 2.12
 
 Control {
 
-    height: 110
+    height: (withTitle)? 35 * Screen.pixelDensity: 15 * Screen.pixelDensity
 
-    property string title: ""
     property string help: ""
-    property bool lightMode: themeSwitch.lightMode
+    property string title: ""
+    property bool withTitle: true
 
     ColumnLayout {
-        LVMSwitch {
-            id: themeSwitch
-            text: qsTr("Light theme");
-            Layout.alignment: Qt.AlignRight
-            Layout.preferredHeight: 30
-        }
-
         Label {
             text: title;
             font.pixelSize: 24
             font.bold: true
             Layout.alignment: Qt.AlignLeft
-
+            visible: withTitle
         }
 
         Label {

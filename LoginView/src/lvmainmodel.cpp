@@ -93,7 +93,7 @@ void LVMainModel::setCountry(int country) {
     emit countryListChanged();
 }
 
-void LVMainModel::setData(UserData data) {
+void LVMainModel::setData(const UserData& data) {
     if (m_data == data)
         return;
 
@@ -108,6 +108,42 @@ void LVMainModel::setPasswordError(QString passwordError) {
 
     m_passwordError = passwordError;
     emit passwordErrorChanged(m_passwordError);
+}
+
+ShowExtraComponent LVMainModel::components() const {
+    return _components;
+}
+
+void LVMainModel::setComponents(const ShowExtraComponent &components) {
+    if (_components != components) {
+        _components = components;
+        emit showChanged();
+    }
+}
+
+bool LVMainModel::fTitle() const {
+    return _components & ShowExtraComponent::Title;
+}
+
+bool LVMainModel::fFirstName() const {
+    return _components & ShowExtraComponent::FirstName;
+}
+
+bool LVMainModel::fLastName() const {
+    return _components & ShowExtraComponent::LastName;
+}
+
+bool LVMainModel::fNickname() const {
+    return _components & ShowExtraComponent::Nickname;
+}
+
+bool LVMainModel::fEMail() const {
+    return _components & ShowExtraComponent::EMail;
+}
+
+void LVMainModel::clear() {
+    emit clearView();
+    setData({});
 }
 
 void LVMainModel::setValidData(UserViewValidationData validationData) {
@@ -146,10 +182,11 @@ void LVMainModel::checkValid(const UserData& data) {
 
     UserViewValidationData result;
 
-    result.setEmail(!data.email().contains(QRegExp("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")));
-    result.setCountry(!m_countryList.contains(data.country()));
-    result.setLastName(false);
-    result.setFirstName(data.firstName().contains(" ") || data.firstName().isEmpty());
+    result.setNickname(fNickname() && (data.nickname().contains(" ") || data.nickname().isEmpty()));
+    result.setEmail(fEMail() && !data.email().contains(QRegExp("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")));
+    result.setCountry(m_countryList.size() && !m_countryList.contains(data.country()));
+    result.setLastName(fLastName() && false);
+    result.setFirstName(fFirstName() && (data.firstName().contains(" ") || data.firstName().isEmpty()));
 
     bool passwordValidation = true;
 

@@ -9,5 +9,6 @@
         <file>LoginViewModule/LVMCheckBox.qml</file>
         <file>LoginViewModule/LVMButton.qml</file>
         <file>LoginViewModule/ValidatIonIndicator.qml</file>
+        <file>LoginViewModule/LoginViewDialog.qml</file>
     </qresource>
 </RCC>

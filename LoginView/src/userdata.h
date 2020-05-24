@@ -20,6 +20,7 @@ class LOGINVIEW_EXPORT UserData
     Q_PROPERTY(QString lastName READ lastName WRITE setLastName)
     Q_PROPERTY(QString rawPassword READ rawPassword WRITE setRawPassword)
     Q_PROPERTY(QString email READ email WRITE setEmail)
+    Q_PROPERTY(QString nickname READ nickname WRITE setNickname)
 
 public:
     UserData();
@@ -32,6 +33,7 @@ public:
     friend bool operator !=(const UserData& left, const UserData& right);
     friend bool operator ==(const UserData& left, const UserData& right);
 
+    QString nickname() const;
 
 public slots:
     void setCountry(int country);
@@ -40,12 +42,16 @@ public slots:
     void setRawPassword(const QString& rawPassword);
     void setEmail(const QString& email);
 
+    void setNickname(const QString &nickname);
+
 private:
     int m_country;
     QString m_firstName;
     QString m_lastName;
     QString m_rawPassword;
     QString m_email;
+
+    QString m_nickname;
 };
 
 }

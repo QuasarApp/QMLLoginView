@@ -26,12 +26,12 @@ find_package(Qt5 COMPONENTS Core QuickControls2 REQUIRED)
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED
       main.cpp
-      qml.qrc
+      lv_example_res.qrc
     )
 else()
     add_executable(${PROJECT_NAME}
       main.cpp
-      qml.qrc
+      lv_example_res.qrc
       icon.rc
     )
 endif()

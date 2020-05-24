@@ -36,12 +36,33 @@ enum PasswordValidationLvl {
     ExtraChars      = 0x10
 };
 
+/**
+ * @brief The ShowExtraComponent enum
+ * default Title | FirstName | LastName
+ */
+enum ShowExtraComponent {
+    NoShow          = 0x00,
+    Title           = 0x01,
+    FirstName       = 0x02,
+    LastName        = 0x04,
+    EMail           = 0x08,
+    Nickname        = 0x10,
+
+    All             = EMail | Title | FirstName | LastName
+};
+
 class LOGINVIEW_EXPORT LVMainModel: public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(QStringList countryList READ countryList NOTIFY countryListChanged)
     Q_PROPERTY(QList<int> countryCodeList READ countryCodeList NOTIFY countryCodeListChanged)
+
+    Q_PROPERTY(bool fTitle READ fTitle NOTIFY showChanged)
+    Q_PROPERTY(bool fLastName READ fLastName NOTIFY showChanged)
+    Q_PROPERTY(bool fFirstName READ fFirstName NOTIFY showChanged)
+    Q_PROPERTY(bool fNickname READ fNickname NOTIFY showChanged)
+    Q_PROPERTY(bool fEMail READ fEMail NOTIFY showChanged)
 
     Q_PROPERTY(int country READ country WRITE setCountry NOTIFY countryChanged)
     Q_PROPERTY(UserData data READ data WRITE setData NOTIFY dataChanged)
@@ -78,9 +99,29 @@ public:
     Q_INVOKABLE void showTermOfUseRequest();
 
 
+    ShowExtraComponent components() const;
+    void setComponents(const ShowExtraComponent &components);
+
+    bool fTitle() const;
+    bool fFirstName() const;
+    bool fLastName() const;
+    bool fNickname() const;
+
+    bool fEMail() const;
+
+    /**
+     * @brief clear - clear all data from view
+     */
+    void clear();
+
 public slots:
     void setCountry(int country);
-    void setData(UserData data);
+
+    /**
+     * @brief setData set new data for view
+     * @param data
+     */
+    void setData(const UserData &data);
 
 signals:
     void countryChanged(int country);
@@ -91,19 +132,19 @@ signals:
      * @brief sigLoginRequest
      * emited when user try login
      */
-    void sigLoginRequest(UserData);
+    void sigLoginRequest(const UserData&);
 
     /**
      * @brief sigRegisterRequest
      * emited when user try create new accaunt
      */
-    void sigRegisterRequest(UserData);
+    void sigRegisterRequest(const UserData&);
 
     /**
      * @brief sigForgotPasswordRequest
      * emited when user forgot own password
      */
-    void sigForgotPasswordRequest(UserData);
+    void sigForgotPasswordRequest(const UserData&);
 
     /**
      * @brief sigShowTermOfUseRequest
@@ -115,6 +156,13 @@ signals:
     void dataChanged(UserData data);
     void validDataChanged(UserViewValidationData validationData);
     void passwordErrorChanged(QString passwordError);
+
+    /**
+     * @brief showChanged - emited when show components changed
+     * @param ftitle
+     */
+    void showChanged();
+    void clearView();
 
 private:
     void checkValid(const UserData &data);
@@ -130,6 +178,7 @@ private:
 
     UserViewValidationData m_validationData;
     QString m_passwordError;
+    ShowExtraComponent _components = ShowExtraComponent::All;
 };
 
 }

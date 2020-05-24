@@ -20,6 +20,7 @@ class UserViewValidationData
     Q_PROPERTY(bool lastName READ lastName WRITE setLastName)           // ValidationAddersses::LastName
     Q_PROPERTY(bool rawPassword READ rawPassword WRITE setRawPassword)  // ValidationAddersses::RawPassword
     Q_PROPERTY(bool email READ email WRITE setEmail)                    // ValidationAddersses::Email
+    Q_PROPERTY(bool nickname READ nickname WRITE setNickname)           // ValidationAddersses::Email
     Q_PROPERTY(bool noError READ noError)
 
 public:
@@ -39,6 +40,7 @@ public:
                             const UserViewValidationData &right);
 
     bool noError() const;
+    bool nickname() const;
 
 public slots:
     void setCountry(bool country);
@@ -46,6 +48,8 @@ public slots:
     void setLastName(bool lastName);
     void setRawPassword(bool rawPassword);
     void setEmail(bool email);
+
+    void setNickname(bool nickname);
 
 private:
     int m_data;

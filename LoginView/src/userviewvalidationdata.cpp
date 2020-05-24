@@ -14,7 +14,9 @@ enum class ValidationAddersses {
     FirstName               = 0x02,
     LastName                = 0x04,
     RawPassword             = 0x08,
-    Email                   = 0x10
+    Email                   = 0x10,
+    Nickname                = 0x20
+
 };
 
 UserViewValidationData::UserViewValidationData() {
@@ -22,6 +24,7 @@ UserViewValidationData::UserViewValidationData() {
             static_cast<int>(ValidationAddersses::Country) |
             static_cast<int>(ValidationAddersses::LastName) |
             static_cast<int>(ValidationAddersses::RawPassword) |
+            static_cast<int>(ValidationAddersses::Nickname) |
             static_cast<int>(ValidationAddersses::Email);
 }
 
@@ -47,6 +50,10 @@ bool UserViewValidationData::email() const {
 
 bool UserViewValidationData::noError() const {
     return !m_data;
+}
+
+bool UserViewValidationData::nickname() const {
+    return m_data & static_cast<int>(ValidationAddersses::Nickname);
 }
 
 bool operator !=(const UserViewValidationData &left,
@@ -82,6 +89,11 @@ void UserViewValidationData::setRawPassword(bool rawPassword) {
 void UserViewValidationData::setEmail(bool email) {
     m_data &= ~static_cast<int>(ValidationAddersses::Email);
     m_data |= (static_cast<int>(ValidationAddersses::Email) * (email & 0x01));
+}
+
+void UserViewValidationData::setNickname(bool nickname) {
+    m_data &= ~static_cast<int>(ValidationAddersses::Nickname);
+    m_data |= (static_cast<int>(ValidationAddersses::Nickname) * (nickname & 0x01));
 }
 
 }

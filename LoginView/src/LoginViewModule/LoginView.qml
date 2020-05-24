@@ -13,24 +13,40 @@ import QtQuick.Controls.Universal 2.12
 
 Page {
 
+    id: root;
     height: 500
     width: 400
 
     header: LVMHeader{
         id: header
-        title: (conntent.isRegisterNewUser)? qsTr("Sign Up"): qsTr("Login In")
-        help: (conntent.isRegisterNewUser)? qsTr('please fill this form to create an account'):
-                                             qsTr('please fill this form to login in your account')
+        withTitle: root.withTitle
+        title: (conntent.isRegisterNewUser)? qsTr("SignUp"): qsTr("LogIn")
+        help: (conntent.isRegisterNewUser)? qsTr('Please fill this form to create an account'):
+                                             qsTr('Please fill this form to login in your account')
     }
+    property bool withTitle: (lognViewModel)? lognViewModel.fTitle: false
+    property bool lastName: (lognViewModel)? lognViewModel.fLastName: false
+    property bool firstName: (lognViewModel)? lognViewModel.fFirstName: false
+    property bool nickName: (lognViewModel)? lognViewModel.fNickname: false
+    property bool email: (lognViewModel)? lognViewModel.fEMail: false
 
-    property bool lightMode: header.lightMode
     property var lognViewModel: null
     property bool registerNewUser: true
+    signal loginClicked(var isregister);
+    function clear() {
 
-    Material.theme: (lightMode)? Material.Light: Material.Dark
-    Material.accent: (lightMode)? Material.LightBlue: Material.Orange
-    Universal.theme: (lightMode)? Material.Light: Material.Dark
-    Universal.accent: (lightMode)? Material.LightBlue: Material.Orange
+        countryInput.currentIndex = -1
+        pass1.text = ""
+        pass2.text = ""
+        termOfUse.checked = false
+    }
+
+    Connections {
+        target: userLogin
+        onClearView: {
+            clear();
+        }
+    }
 
     contentItem:
         Item {
@@ -69,10 +85,11 @@ Page {
             }
 
             LVMTextInput {
+                id: firstNameInput
                 placeholderText: qsTr("First Name")
                 Layout.columnSpan: (content.width > 350)? 1 : 2;
                 Layout.fillWidth: true
-                visible: conntent.isRegisterNewUser
+                visible: conntent.isRegisterNewUser && root.firstName
                 tooltip: (hasError)? qsTr("Empy or incorrect name. Please enter yuor name."):  ""
                 hasError: (conntent.errors && conntent.errors.firstName);
                 onTextChanged: {
@@ -81,13 +98,17 @@ Page {
                     }
                     hasEdited = true
                 }
+                text: lognViewModel.data.firstName;
+
             }
 
             LVMTextInput {
+                id: lastNameInput
+
                 placeholderText: qsTr("Last Name")
                 Layout.columnSpan: (content.width > 350)? 1 : 2;
                 Layout.fillWidth: true
-                visible: conntent.isRegisterNewUser
+                visible: conntent.isRegisterNewUser && root.lastName
                 hasError: (conntent.errors && conntent.errors.lastName);
 
                 onTextChanged: {
@@ -97,27 +118,35 @@ Page {
                     hasEdited = true
 
                 }
+                text: lognViewModel.data.lastName;
+
 
             }
 
             LVMComboBox {
+                id: countryInput
+
                 placeholderText: qsTr("Select you country")
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                visible: conntent.isRegisterNewUser
+                visible: conntent.isRegisterNewUser && model.length
                 onCurrentIndexChanged: {
                     if (lognViewModel) {
                         lognViewModel.data.country = lognViewModel.countryCodeList[currentIndex];
                     }
                 }
+
             }
 
             LVMTextInput {
+                id: emailInput
+
                 placeholderText: qsTr("EMail")
-                Layout.columnSpan: 2
+                Layout.columnSpan: (root.email && root.nickName)? (content.width > 350)? 1 : 2 : 2;
                 Layout.fillWidth: true
+                visible: root.email
                 hasError: (conntent.errors && conntent.errors.email);
-                tooltip: (hasError)? qsTr("Empy or incorrect email address. Please enter yuor name.") : ""
+                tooltip: (hasError)? qsTr("Empty or incorrect email address. Please enter yuor name.") : ""
                 onTextChanged: {
                     if (lognViewModel) {
                         lognViewModel.data.email = text;
@@ -125,6 +154,29 @@ Page {
                     hasEdited = true
 
                 }
+                text: lognViewModel.data.email;
+
+            }
+
+            LVMTextInput {
+                id: nicknameInput
+
+                placeholderText: qsTr("Nickname")
+                Layout.columnSpan: (root.email && root.nickName)? (content.width > 350)? 1 : 2 : 2;
+                Layout.fillWidth: true
+                visible:  root.nickName
+                hasError: (conntent.errors && conntent.errors.nickname);
+                tooltip: (hasError)? qsTr("Empty or incorrect Nickname. Please enter yuor name.") : ""
+                onTextChanged: {
+                    if (lognViewModel) {
+                        lognViewModel.data.nickname = text;
+                    }
+                    hasEdited = true
+
+                }
+
+                text: lognViewModel.data.nickname;
+
             }
 
             LVMTextInput {
@@ -137,6 +189,7 @@ Page {
                 onTextChanged: {
                     content.paswordValidation()
                 }
+
                 echoMode: TextInput.Password
             }
 
@@ -174,7 +227,7 @@ Page {
             }
 
             LVMButton {
-                text: (conntent.isRegisterNewUser)? qsTr("Sign Up") : qsTr("Login In")
+                text: (conntent.isRegisterNewUser)? qsTr("SignUp") : qsTr("LogIn")
                 visible: true
                 enabled: (conntent.errors && conntent.errors.noError) &&
                          ((conntent.isRegisterNewUser)? !pass2.hasError && termOfUse.checked: true)
@@ -187,6 +240,7 @@ Page {
                             lognViewModel.loginRequest();
                         }
                     }
+                    loginClicked(conntent.isRegisterNewUser);
                 }
             }
 
