@@ -52,6 +52,8 @@ This is a simple login window library for qml projects. The project is built wit
 ```
 
 ``` qml
+import LoginViewModule 1.0
+
     LoginView {
         lognViewModel: exampleLogin // exampleLogin - this is inited model in main.cpp
         anchors.fill: parent
