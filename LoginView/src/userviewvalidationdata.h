@@ -20,7 +20,7 @@ class UserViewValidationData
     Q_PROPERTY(bool lastName READ lastName WRITE setLastName)           // ValidationAddersses::LastName
     Q_PROPERTY(bool rawPassword READ rawPassword WRITE setRawPassword)  // ValidationAddersses::RawPassword
     Q_PROPERTY(bool email READ email WRITE setEmail)                    // ValidationAddersses::Email
-    Q_PROPERTY(bool nickname READ nickname WRITE setNickname)           // ValidationAddersses::Email
+    Q_PROPERTY(bool nickname READ nickname WRITE setNickname)           // ValidationAddersses::nickname
     Q_PROPERTY(bool noError READ noError)
 
 public:

@@ -48,7 +48,7 @@ enum ShowExtraComponent {
     EMail           = 0x08,
     Nickname        = 0x10,
 
-    All             = EMail | Title | FirstName | LastName
+    All             = EMail | Title | FirstName | LastName | Nickname
 };
 
 class LOGINVIEW_EXPORT LVMainModel: public QObject
