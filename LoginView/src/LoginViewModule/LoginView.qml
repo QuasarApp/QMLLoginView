@@ -5,11 +5,11 @@
 //# of this license document, but changing it is not allowed.
 //#
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.12
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Universal 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls.Material 2.15
+import QtQuick.Controls.Universal 2.15
 
 Page {
 
@@ -42,8 +42,8 @@ Page {
     }
 
     Connections {
-        target: userLogin
-        onClearView: {
+        target: lognViewModel
+        function clearView () {
             clear();
         }
     }
@@ -98,7 +98,7 @@ Page {
                     }
                     hasEdited = true
                 }
-                text: lognViewModel.data.firstName;
+                text: (lognViewModel)? lognViewModel.data.firstName: "";
 
             }
 
@@ -118,7 +118,7 @@ Page {
                     hasEdited = true
 
                 }
-                text: lognViewModel.data.lastName;
+                text: (lognViewModel)? lognViewModel.data.lastName: "";
 
 
             }
@@ -154,7 +154,7 @@ Page {
                     hasEdited = true
 
                 }
-                text: lognViewModel.data.email;
+                text: (lognViewModel)?lognViewModel.data.email: "";
 
             }
 
@@ -175,7 +175,7 @@ Page {
 
                 }
 
-                text: lognViewModel.data.nickname;
+                text: (lognViewModel)? lognViewModel.data.nickname: "";
 
             }
 
@@ -265,7 +265,6 @@ Page {
 
     footer: TabBar {
         id: tabBar
-        width: parent.width
 
         currentIndex: registerNewUser
         TabButton {
