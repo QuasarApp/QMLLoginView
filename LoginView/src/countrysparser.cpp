@@ -41,7 +41,7 @@ bool CountrysParser::parseXMLSource(const QString &xmlFile, QHash<int, QString> 
             break;
         }
 
-        if (token == QXmlStreamReader::StartElement && xml.name() == "countries") {
+        if (token == QXmlStreamReader::StartElement && xml.name() == QString("countries")) {
             success = parseCountries(xml, result);
             break;
         }
@@ -81,20 +81,20 @@ bool CountrysParser::parseCountry(QXmlStreamReader& xml, QHash<int, QString>& re
 
     int code = 0;
     QString name;
-    while (!(xml.readNext() == QXmlStreamReader::EndElement && xml.name() == "country")) {
+    while (!(xml.readNext() == QXmlStreamReader::EndElement && xml.name() == QString("country"))) {
 
         if (!isValidItem(xml)) {
             return false;
         }
 
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "code") {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QString("code")) {
             code = getCode(xml);
             if (code < 0) {
                 qDebug() << "error parse, code of country is invalid: line "
                          << xml.lineNumber();
                 return false;
             }
-        } else if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "name") {
+        } else if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QString("name")) {
             name = getName(xml);
             if (name.isEmpty()) {
                 qDebug() << "error parse, name of country is empty: line "
@@ -113,13 +113,13 @@ bool CountrysParser::parseCountries(QXmlStreamReader &xml, QHash<int, QString>& 
     if (xml.tokenType() != QXmlStreamReader::StartElement)
         return false;
 
-    while (!(xml.readNext() == QXmlStreamReader::EndElement && xml.name() == "countries")) {
+    while (!(xml.readNext() == QXmlStreamReader::EndElement && xml.name() == QString("countries"))) {
 
         if (!isValidItem(xml)) {
             return false;
         }
 
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "country" && !parseCountry(xml, result)) {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QString("country") && !parseCountry(xml, result)) {
             return false;
         }
     }

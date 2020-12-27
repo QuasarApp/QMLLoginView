@@ -11,6 +11,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QDebug>
+#include <QRegularExpression>
 
 namespace LoginView {
 
@@ -183,7 +184,7 @@ void LVMainModel::checkValid(const UserData& data) {
     UserViewValidationData result;
 
     result.setNickname(fNickname() && (data.nickname().contains(" ") || data.nickname().isEmpty()));
-    result.setEmail(fEMail() && !data.email().contains(QRegExp("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")));
+    result.setEmail(fEMail() && !data.email().contains(QRegularExpression("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")));
     result.setCountry(m_countryList.size() && !m_countryList.contains(data.country()));
     result.setLastName(fLastName() && false);
     result.setFirstName(fFirstName() && (data.firstName().contains(" ") || data.firstName().isEmpty()));
@@ -197,22 +198,22 @@ void LVMainModel::checkValid(const UserData& data) {
 
     if (m_validLvl & PasswordValidationLvl::NumberChars) {
         passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegExp("[0-9]"));
+                data.rawPassword().contains(QRegularExpression("[0-9]"));
     }
 
     if (m_validLvl & PasswordValidationLvl::LitinSmallChars) {
         passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegExp("[a-z]"));
+                data.rawPassword().contains(QRegularExpression("[a-z]"));
     }
 
     if (m_validLvl & PasswordValidationLvl::LatinLargeChars) {
         passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegExp("[A-Z]"));
+                data.rawPassword().contains(QRegularExpression("[A-Z]"));
     }
 
     if (m_validLvl & PasswordValidationLvl::ExtraChars) {
         passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegExp("[!@#$%^&*]"));
+                data.rawPassword().contains(QRegularExpression("[!@#$%^&*]"));
     }
 
     result.setRawPassword(!passwordValidation);
