@@ -49,25 +49,30 @@ enum PasswordValidationLvl {
  */
 enum ShowExtraComponent {
     /// No show any componets.
-    NoShow          = 0x00,
+    NoShow          = 0x0000,
     /// Show Title of the qml page.
-    Title           = 0x01,
+    Title           = 0x0001,
     /// Show first name input widget.
-    FirstName       = 0x02,
+    FirstName       = 0x0002,
     /// Show last name input widget.
-    LastName        = 0x04,
+    LastName        = 0x0004,
     /// Show email name input widget.
-    EMail           = 0x08,
+    EMail           = 0x0008,
     /// Show nickname input widget.
-    Nickname        = 0x10,
+    Nickname        = 0x0010,
     /// Show password input widget.
-    Password        = 0x20,
+    Password        = 0x0020,
     /// Show register page.
-    RegisterPage    = 0x40,
+    RegisterPage    = 0x0040,
     /// Show login page.
-    LoginPage       = 0x80,
+    LoginPage       = 0x0080,
+    /// Show term of use button and accept term of use checkbox.
+    TermOfUse       = 0x0100,
+    /// Show only one input widget with name.
+    RegNameOnly     = Title | Nickname | RegisterPage,
+
     /// Show all widgets and pages.
-    All             = EMail | Title | FirstName | LastName | Nickname | Password | RegisterPage | LoginPage
+    All             = EMail | Title | FirstName | LastName | Nickname | Password | RegisterPage | LoginPage | TermOfUse
 };
 
 /**
@@ -85,6 +90,10 @@ class LOGINVIEW_EXPORT LVMainModel: public QObject
     Q_PROPERTY(bool fFirstName READ fFirstName NOTIFY showChanged)
     Q_PROPERTY(bool fNickname READ fNickname NOTIFY showChanged)
     Q_PROPERTY(bool fEMail READ fEMail NOTIFY showChanged)
+    Q_PROPERTY(bool fRegister READ fRegister NOTIFY showChanged)
+    Q_PROPERTY(bool fLogin READ fLogin NOTIFY showChanged)
+    Q_PROPERTY(bool fPassword READ fPassword NOTIFY showChanged)
+    Q_PROPERTY(bool fTermOfUse READ fTermOfUse NOTIFY showChanged)
 
     Q_PROPERTY(int country READ country WRITE setCountry NOTIFY countryChanged)
     Q_PROPERTY(UserData data READ data WRITE setData NOTIFY dataChanged)
@@ -220,6 +229,12 @@ public:
      * @return register page visible state.
      */
     bool fRegister() const;
+
+    /**
+     * @brief fTermOfUse This method return term of use widgets visible state.
+     * @return term of use widgets visible state.
+     */
+    bool fTermOfUse() const;
 
     /**
      * @brief fLogin This method return login page visible state.

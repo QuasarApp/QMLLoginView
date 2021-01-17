@@ -52,9 +52,9 @@ Control {
         anchors.bottomMargin: 15
 
         anchors.left: parent.left
-        anchors.leftMargin: 15
+        anchors.leftMargin: 0
         anchors.right: parent.right
-        anchors.rightMargin: 15
+        anchors.rightMargin: 0
 
     }
 

@@ -158,6 +158,10 @@ bool LVMainModel::fRegister() const {
     return _components & ShowExtraComponent::RegisterPage;
 }
 
+bool LVMainModel::fTermOfUse() const {
+    return _components & ShowExtraComponent::TermOfUse;
+}
+
 bool LVMainModel::fLogin() const {
     return _components & ShowExtraComponent::LoginPage;
 }
