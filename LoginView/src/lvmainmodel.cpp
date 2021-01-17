@@ -31,7 +31,7 @@ LVMainModel::~LVMainModel() {
     }
 }
 
-bool LVMainModel::setCounrySource(const QString &path) {
+bool LVMainModel::setCountriesSource(const QString &path) {
 
     if (!m_countrysParser) {
         m_countrysParser = new CountrysParser();
@@ -103,6 +103,14 @@ void LVMainModel::setData(const UserData& data) {
     emit dataChanged(m_data);
 }
 
+void LVMainModel::setAcceptButtonText(const QString &acceptButtonText) {
+    if (m_acceptButtonText == acceptButtonText)
+        return;
+
+    m_acceptButtonText = acceptButtonText;
+    emit acceptButtonTextChanged(m_acceptButtonText);
+}
+
 void LVMainModel::setPasswordError(QString passwordError) {
     if (m_passwordError == passwordError)
         return;
@@ -138,13 +146,29 @@ bool LVMainModel::fNickname() const {
     return _components & ShowExtraComponent::Nickname;
 }
 
+bool LVMainModel::fPassword() const {
+    return _components & ShowExtraComponent::Password;
+}
+
 bool LVMainModel::fEMail() const {
     return _components & ShowExtraComponent::EMail;
+}
+
+bool LVMainModel::fRegister() const {
+    return _components & ShowExtraComponent::RegisterPage;
+}
+
+bool LVMainModel::fLogin() const {
+    return _components & ShowExtraComponent::LoginPage;
 }
 
 void LVMainModel::clear() {
     emit clearView();
     setData({});
+}
+
+QString LVMainModel::acceptButtonText() const {
+    return m_acceptButtonText;
 }
 
 void LVMainModel::setValidData(UserViewValidationData validationData) {
@@ -191,29 +215,32 @@ void LVMainModel::checkValid(const UserData& data) {
 
     bool passwordValidation = true;
 
-    if (m_validLvl & PasswordValidationLvl::Size8andMore) {
-        passwordValidation = passwordValidation &&
-                data.rawPassword().length() >= 8;
-    }
+    if (fPassword()) {
+        if (m_validLvl & PasswordValidationLvl::Size8andMore) {
+            passwordValidation = passwordValidation &&
+                    data.rawPassword().length() >= 8;
+        }
 
-    if (m_validLvl & PasswordValidationLvl::NumberChars) {
-        passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegularExpression("[0-9]"));
-    }
+        if (m_validLvl & PasswordValidationLvl::NumberChars) {
+            passwordValidation = passwordValidation &&
+                    data.rawPassword().contains(QRegularExpression("[0-9]"));
+        }
 
-    if (m_validLvl & PasswordValidationLvl::LitinSmallChars) {
-        passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegularExpression("[a-z]"));
-    }
+        if (m_validLvl & PasswordValidationLvl::LitinSmallChars) {
+            passwordValidation = passwordValidation &&
+                    data.rawPassword().contains(QRegularExpression("[a-z]"));
+        }
 
-    if (m_validLvl & PasswordValidationLvl::LatinLargeChars) {
-        passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegularExpression("[A-Z]"));
-    }
+        if (m_validLvl & PasswordValidationLvl::LatinLargeChars) {
+            passwordValidation = passwordValidation &&
+                    data.rawPassword().contains(QRegularExpression("[A-Z]"));
+        }
 
-    if (m_validLvl & PasswordValidationLvl::ExtraChars) {
-        passwordValidation = passwordValidation &&
-                data.rawPassword().contains(QRegularExpression("[!@#$%^&*]"));
+        if (m_validLvl & PasswordValidationLvl::ExtraChars) {
+            passwordValidation = passwordValidation &&
+                    data.rawPassword().contains(QRegularExpression("[!@#$%^&*]"));
+        }
+
     }
 
     result.setRawPassword(!passwordValidation);

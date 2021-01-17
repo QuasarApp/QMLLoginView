@@ -12,6 +12,9 @@
 
 namespace LoginView {
 
+/**
+ * @brief The UserViewValidationData class contains data of the last validation.
+ */
 class UserViewValidationData
 {
     Q_GADGET

@@ -12,6 +12,9 @@
 
 namespace LoginView {
 
+/**
+ * @brief The UserData class This is base class for save user data.
+ */
 class LOGINVIEW_EXPORT UserData
 {
     Q_GADGET

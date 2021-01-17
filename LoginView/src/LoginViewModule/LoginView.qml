@@ -29,6 +29,10 @@ Page {
     property bool firstName: (lognViewModel)? lognViewModel.fFirstName: false
     property bool nickName: (lognViewModel)? lognViewModel.fNickname: false
     property bool email: (lognViewModel)? lognViewModel.fEMail: false
+    property bool password: (lognViewModel)? lognViewModel.fPassword: false
+    property bool loginPage: (lognViewModel)? lognViewModel.fLogin: false
+    property bool registerPage: (lognViewModel)? lognViewModel.fRegister: false
+    property string acceptButtonText: (lognViewModel)? lognViewModel.acceptButtonText: false
 
     property var lognViewModel: null
     property bool registerNewUser: true
@@ -189,6 +193,7 @@ Page {
                 onTextChanged: {
                     content.paswordValidation()
                 }
+                visible: password
 
                 echoMode: TextInput.Password
             }
@@ -198,7 +203,7 @@ Page {
                 placeholderText: qsTr("Confirm pasword")
                 Layout.columnSpan: (content.width > 350)? 1 : 2;
                 Layout.fillWidth: true
-                visible: conntent.isRegisterNewUser
+                visible: conntent.isRegisterNewUser && password
 
                 onTextChanged: {
                     content.paswordValidation()
@@ -227,7 +232,12 @@ Page {
             }
 
             LVMButton {
-                text: (conntent.isRegisterNewUser)? qsTr("SignUp") : qsTr("LogIn")
+                text: acceptButtonText.length?
+                          acceptButtonText:
+                          (conntent.isRegisterNewUser)?
+                              qsTr("SignUp"):
+                              qsTr("LogIn")
+
                 visible: true
                 enabled: (conntent.errors && conntent.errors.noError) &&
                          ((conntent.isRegisterNewUser)? !pass2.hasError && termOfUse.checked: true)

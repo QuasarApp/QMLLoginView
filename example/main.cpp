@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
         pathXML = QString(argv[1]);
     }
 
-    if (!loginModel.setCounrySource(pathXML)) {
+    if (!loginModel.setCountriesSource(pathXML)) {
         return -2;
     }
 
