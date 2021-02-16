@@ -1,5 +1,5 @@
 //#
-//# Copyright (C) 2018-2020 Yankovich Andrei (EndrII).
+//# Copyright (C) 2018-2021 Yankovich Andrei (EndrII).
 //# Distributed under the lgplv3 software license, see the accompanying
 //# Everyone is permitted to copy and distribute verbatim copies
 //# of this license document, but changing it is not allowed.
@@ -276,12 +276,22 @@ Page {
 
         visible: privateRoot.loginPage && privateRoot.registerPage
 
-        currentIndex: privateRoot.registerPage
+        currentIndex: privateRoot.pageToIndex(privateRoot.currentPage)
         TabButton {
             text: qsTr("Login In")
         }
         TabButton {
             text: qsTr("Sign Up")
+        }
+
+        onCurrentIndexChanged: {
+            if (lognViewModel) {
+                if (currentIndex)
+                    lognViewModel.setCurrentPage(ViewComponents.sigupPage)
+                else
+                    lognViewModel.setCurrentPage(ViewComponents.loginPage)
+
+            }
         }
     }
 
@@ -301,6 +311,7 @@ Page {
         property bool loginPage: (lognViewModel)? lognViewModel.fLogin: false
         property bool registerPage: (lognViewModel)? lognViewModel.fRegister: false
         property bool termOfuse: (lognViewModel)? lognViewModel.fTermOfUse: false
+        property int currentPage: (lognViewModel)? lognViewModel.currentPage: 0
 
         property string acceptButtonText: (lognViewModel)? lognViewModel.acceptButtonText: false
 
@@ -311,6 +322,10 @@ Page {
                 return toolBarIndex;
 
             return registerPage;
+        }
+
+        function pageToIndex(currentPage) {
+            return currentPage === ViewComponents.sigupPage
         }
 
         function paswordValidation() {

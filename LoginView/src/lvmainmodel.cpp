@@ -1,5 +1,5 @@
 //#
-//# Copyright (C) 2018-2020 Yankovich Andrei (EndrII).
+//# Copyright (C) 2018-2021 Yankovich Andrei (EndrII).
 //# Distributed under the lgplv3 software license, see the accompanying
 //# Everyone is permitted to copy and distribute verbatim copies
 //# of this license document, but changing it is not allowed.
@@ -59,6 +59,7 @@ bool LVMainModel::init( QQmlApplicationEngine *engine) {
 
     engine->addImportPath(":/");
     root->setContextProperty(m_modelName, this);
+    root->setContextProperty("ViewComponents", QVariant::fromValue(ViewComponentsQML{}));
 
     qRegisterMetaType<LoginView::UserData>("UserData");
     qRegisterMetaType<LoginView::UserViewValidationData>("UserViewValidationData");
@@ -119,51 +120,51 @@ void LVMainModel::setPasswordError(QString passwordError) {
     emit passwordErrorChanged(m_passwordError);
 }
 
-ShowExtraComponent LVMainModel::components() const {
-    return _components;
+ViewComponents LVMainModel::components() const {
+    return m_components;
 }
 
-void LVMainModel::setComponents(const ShowExtraComponent &components) {
-    if (_components != components) {
-        _components = components;
+void LVMainModel::setComponents(const ViewComponents &components) {
+    if (m_components != components) {
+        m_components = components;
         emit showChanged();
     }
 }
 
 bool LVMainModel::fTitle() const {
-    return _components & ShowExtraComponent::Title;
+    return m_components & ViewComponents::Title;
 }
 
 bool LVMainModel::fFirstName() const {
-    return _components & ShowExtraComponent::FirstName;
+    return m_components & ViewComponents::FirstName;
 }
 
 bool LVMainModel::fLastName() const {
-    return _components & ShowExtraComponent::LastName;
+    return m_components & ViewComponents::LastName;
 }
 
 bool LVMainModel::fNickname() const {
-    return _components & ShowExtraComponent::Nickname;
+    return m_components & ViewComponents::Nickname;
 }
 
 bool LVMainModel::fPassword() const {
-    return _components & ShowExtraComponent::Password;
+    return m_components & ViewComponents::Password;
 }
 
 bool LVMainModel::fEMail() const {
-    return _components & ShowExtraComponent::EMail;
+    return m_components & ViewComponents::EMail;
 }
 
 bool LVMainModel::fRegister() const {
-    return _components & ShowExtraComponent::RegisterPage;
+    return m_components & ViewComponents::SigupPage;
 }
 
 bool LVMainModel::fTermOfUse() const {
-    return _components & ShowExtraComponent::TermOfUse;
+    return m_components & ViewComponents::TermOfUse;
 }
 
 bool LVMainModel::fLogin() const {
-    return _components & ShowExtraComponent::LoginPage;
+    return m_components & ViewComponents::LoginPage;
 }
 
 void LVMainModel::clear() {
@@ -173,6 +174,23 @@ void LVMainModel::clear() {
 
 QString LVMainModel::acceptButtonText() const {
     return m_acceptButtonText;
+}
+
+void LVMainModel::setCurrentPage(int page) {
+    if (page == m_currentPage) {
+        return;
+    }
+
+    if (!(page & m_components)) {
+        return;
+    }
+
+    m_currentPage = static_cast<ViewComponents>(page);
+    emit currentPageChanged(page);
+}
+
+ViewComponents LVMainModel::currentPage() const {
+    return m_currentPage;
 }
 
 void LVMainModel::setValidData(UserViewValidationData validationData) {
