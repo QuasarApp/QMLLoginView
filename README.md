@@ -2,7 +2,7 @@
 
 ## Introdaction
 
-![logo](res\banner.png)
+![banner](res/banner.png)
 
 
 This is a simple login window library for qml projects. The project is built with the help of the сmake build system and may be easily included into existing projects.
