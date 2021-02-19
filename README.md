@@ -2,7 +2,7 @@
 
 ## Introdaction
 
-![logo](https://user-images.githubusercontent.com/12465465/79076393-77b55300-7d02-11ea-8128-498f954dec92.png)
+![Banner](res/Banner.png)
 
 
 This is a simple login window library for qml projects. The project is built with the help of the сmake build system and may be easily included into existing projects.
