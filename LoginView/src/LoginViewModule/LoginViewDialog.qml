@@ -9,18 +9,17 @@ Popup {
     id: root
     property var lognViewModel: null
 
-    width: Math.min(100 * Screen.pixelDensity * (parent.width / parent.height),
+    width: Math.min(70 * Screen.pixelDensity * (parent.width / parent.height),
                     parent.width * 0.9);
-    height: Math.min(200 * Screen.pixelDensity, parent.height * 0.9);
+    height: Math.min(150 * Screen.pixelDensity, parent.height * 0.9);
 
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    LoginView {
+    contentItem: LoginView {
         id: source
         lognViewModel: root.lognViewModel
-        anchors.fill: parent
 
         onLoginClicked: {
             root.close();

@@ -1,5 +1,5 @@
 //#
-//# Copyright (C) 2018-2020 Yankovich Andrei (EndrII).
+//# Copyright (C) 2018-2021 Yankovich Andrei (EndrII).
 //# Distributed under the lgplv3 software license, see the accompanying
 //# Everyone is permitted to copy and distribute verbatim copies
 //# of this license document, but changing it is not allowed.
@@ -52,9 +52,9 @@ Control {
         anchors.bottomMargin: 15
 
         anchors.left: parent.left
-        anchors.leftMargin: 15
+        anchors.leftMargin: 0
         anchors.right: parent.right
-        anchors.rightMargin: 15
+        anchors.rightMargin: 0
 
     }
 

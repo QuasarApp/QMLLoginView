@@ -1,5 +1,5 @@
 //#
-//# Copyright (C) 2018-2020 Yankovich Andrei (EndrII).
+//# Copyright (C) 2018-2021 Yankovich Andrei (EndrII).
 //# Distributed under the lgplv3 software license, see the accompanying
 //# Everyone is permitted to copy and distribute verbatim copies
 //# of this license document, but changing it is not allowed.
@@ -12,6 +12,9 @@
 
 namespace LoginView {
 
+/**
+ * @brief The UserViewValidationData class contains data of the last validation.
+ */
 class UserViewValidationData
 {
     Q_GADGET
@@ -20,7 +23,7 @@ class UserViewValidationData
     Q_PROPERTY(bool lastName READ lastName WRITE setLastName)           // ValidationAddersses::LastName
     Q_PROPERTY(bool rawPassword READ rawPassword WRITE setRawPassword)  // ValidationAddersses::RawPassword
     Q_PROPERTY(bool email READ email WRITE setEmail)                    // ValidationAddersses::Email
-    Q_PROPERTY(bool nickname READ nickname WRITE setNickname)           // ValidationAddersses::Email
+    Q_PROPERTY(bool nickname READ nickname WRITE setNickname)           // ValidationAddersses::nickname
     Q_PROPERTY(bool noError READ noError)
 
 public:

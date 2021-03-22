@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018-2020 Yankovich Andrei (EndrII).
+# Copyright (C) 2018-2021 Yankovich Andrei (EndrII).
 # Distributed under the lgplv3 software license, see the accompanying
 # Everyone is permitted to copy and distribute verbatim copies
 # of this license document, but changing it is not allowed.
@@ -20,8 +20,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/../CMake/ProjectOut.cmake)
 
-find_package(Qt5 COMPONENTS Core QuickControls2 REQUIRED)
-
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core QuickControls2 REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core QuickControls2 REQUIRED)
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED
@@ -38,5 +38,5 @@ endif()
 
 target_compile_definitions(${PROJECT_NAME}
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::QuickControls2 LoginView)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core Qt::QuickControls2 LoginView)
 
