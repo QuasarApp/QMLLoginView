@@ -8,7 +8,13 @@
 cmake_minimum_required(VERSION 3.5)
 project(LoginViewMain)
 
+if(NOT DEFINED LOGINVIEW_EXAMPLES)
+    set (LOGINVIEW_EXAMPLES ON)
+endif()
+
 # Add sub directories
 add_subdirectory(LoginView)
-add_subdirectory(example)
 
+if (LOGINVIEW_EXAMPLES)
+    add_subdirectory(example)
+endif()
