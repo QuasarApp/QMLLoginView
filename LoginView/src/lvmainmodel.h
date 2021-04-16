@@ -76,22 +76,22 @@ public:
                             QObject *parent = nullptr);
     ~LVMainModel();
     /**
-     * @brief setCountriesSource This method sets path to xml source file and extract list of countrys
-     * @param path This is path to xml sources of countries
-     * @return true if the function finished successful
+     * @brief setCountriesSource This method sets path to xml source file and extract list of countrys.
+     * @param path This is path to xml sources of countries.
+     * @return True if the function finished successful.
      */
     Q_INVOKABLE bool setCountriesSource(const QString &path);
 
     /**
-     * @brief init - prepare all items for use on qml.
-     * @param engine - current qml engine of application
-     * @return true if the function finished successful
+     * @brief init Prepare all items for use on qml.
+     * @param engine Current qml engine of application.
+     * @return True if the function finished successful.
      */
     bool init(QQmlApplicationEngine *engine);
 
     /**
      * @brief country This method return current country id.
-     * @return current country id.
+     * @return Current country id.
      */
     int country() const;
 
@@ -102,14 +102,14 @@ public:
     QStringList countryList() const;
 
     /**
-     * @brief data This method return information of created or lofined user.
-     * @return return information of created or lofined user.
+     * @brief data This method return information of created or logined user.
+     * @return Return information of created or logined user.
      */
     UserData data() const;
 
     /**
      * @brief validData This method return structure that display valid data.
-     * @return information about last validation.
+     * @return Information about last validation.
      */
     UserViewValidationData validData() const;
 
@@ -122,12 +122,12 @@ public:
 
     /**
      * @brief countryCodeList This method return the list of ids of the countries.
-     * @return countries ids.
+     * @return Countries ids.
      */
     QList<int> countryCodeList() const;
 
     /**
-     * @brief loginRequest This method invoked wjet user click the login button.
+     * @brief loginRequest This method invoked when user click the login button.
      */
     Q_INVOKABLE void loginRequest();
 
@@ -166,105 +166,105 @@ public:
 
     /**
      * @brief fFirstName This method return first name visible state.
-     * @return first name visible state.
+     * @return First name visible state.
      */
     bool fFirstName() const;
 
     /**
      * @brief fLastName This method return last name visible state.
-     * @return last name visible state.
+     * @return Last name visible state.
      */
     bool fLastName() const;
 
     /**
      * @brief fNickname This method return nickname visible state.
-     * @return nickname visible state.
+     * @return Nickname visible state.
      */
     bool fNickname() const;
 
     /**
      * @brief fPassword This method return password visible state.
-     * @return password visible state.
+     * @return Password visible state.
      */
     bool fPassword() const;
 
     /**
      * @brief fEMail This method return email visible state.
-     * @return email visible state.
+     * @return Email visible state.
      */
     bool fEMail() const;
 
     /**
      * @brief fRegister This method return register page visible state.
-     * @return register page visible state.
+     * @return Register page visible state.
      */
     bool fRegister() const;
 
     /**
      * @brief fTermOfUse This method return term of use widgets visible state.
-     * @return term of use widgets visible state.
+     * @return Term of use widgets visible state.
      */
     bool fTermOfUse() const;
 
     /**
      * @brief fLogin This method return login page visible state.
-     * @return login page visible state.
+     * @return Login page visible state.
      */
     bool fLogin() const;
 
     /**
      * @brief fSigupDefaultPage return true if the default page is the sigup page.
-     * @return true if the default page is the sigup page.
+     * @return True if the default page is the sigup page.
      */
     bool fSigupDefaultPage() const;
 
     /**
-     * @brief clear - clear all data from view
+     * @brief clear - Clear all data from view.
      */
     void clear();
 
     /**
      * @brief acceptButtonText This method return alternative text of the accept button.
-     * @return  alternative text of the accept button
+     * @return Alternative text of the accept button.
      */
     QString acceptButtonText() const;
 
     /**
-     * @brief setDefaultPage sets visible page page.
-     * @param page new default padge (RegisterPage or LoginPage)
+     * @brief setDefaultPage Sets visible page.
+     * @param page new default page (RegisterPage or LoginPage).
      */
     Q_INVOKABLE void setCurrentPage(int page);
 
     /**
-     * @brief currentPage return id of the current page
-     * @return id of the current page
+     * @brief currentPage Return id of the current page.
+     * @return Id of the current page.
      */
     ViewComponents currentPage() const;
 
 
 public slots:
     /**
-     * @brief setCountry This slot sets current contry. This method work with qml View and invoked when user change own country.
+     * @brief setCountry This slot sets current country. This method work with qml View and invoked when user change own country.
      * @param country This is new country id.
      */
     void setCountry(int country);
 
     /**
-     * @brief setData sets new data for view on qml page.
-     * @param data new user data.
+     * @brief setData Sets new data for view on qml page.
+     * @param data New user data.
      */
     void setData(const UserData &data);
 
     /**
-     * @brief setAcceptButtonText This method sets new test of the accept button. Use this method if you wnat change test on main button.
-     * @param acceptButtonText new text of the accept button.
+     * @brief setAcceptButtonText This method sets new test of the accept button. Use this method if you want change test on main button.
+     * @param acceptButtonText New text of the accept button.
      */
     void setAcceptButtonText(const QString& acceptButtonText);
 
 signals:
     /**
      * @brief countryChanged This signal emited when country on page is  will be changed.
-     * @param country new country id.
+     * @param country New country id.
      */
     void countryChanged(int country);
 
@@ -279,54 +279,54 @@ signals:
     void countryCodeListChanged();
 
     /**
-     * @brief sigLoginRequest
-     * emited when user try login.
+     * @brief sigLoginRequest 
+     * Emited when user try login.
      */
     void sigLoginRequest(const UserData&);
 
     /**
      * @brief sigRegisterRequest
-     * emited when user try create new accaunt.
+     * Emited when user try create new account.
      */
     void sigRegisterRequest(const UserData&);
 
     /**
      * @brief sigForgotPasswordRequest
-     * emited when user forgot own password.
+     * Emited when user forgot own password.
      */
     void sigForgotPasswordRequest(const UserData&);
 
     /**
      * @brief sigShowTermOfUseRequest
-     * emited when user click on "Show term of use" button.
+     * Emited when user click on "Show term of use" button.
      */
     void sigShowTermOfUseRequest();
 
     /**
-     * @brief dataChanged emited when data of qml form will be changed.
-     * @param data new data of qml form.
+     * @brief dataChanged Emited when data of qml form will be changed.
+     * @param data New data of qml form.
      */
     void dataChanged(UserData data);
 
     /**
      * @brief validDataChanged This method emited when model is finished validation of the accepted user data.
-     * @param validationData this is validation results.
+     * @param validationData This is validation results.
      */
     void validDataChanged(UserViewValidationData validationData);
 
     /**
-     * @brief passwordErrorChanged This method will be emoted when user password have a any error.
+     * @brief passwordErrorChanged This method will be emited when user password have a any error.
      * @param passwordError This is new erro message of user password.
      */
     void passwordErrorChanged(QString passwordError);
 
     /**
-     * @brief showChanged This signal emited when rules of shows components will be changed
+     * @brief showChanged This signal emited when rules of shows components will be changed.
      */
     void showChanged();
 
     /**
-     * @brief clearView This signal emited when need to clear a view. for more ifnformation see The clear method.
+     * @brief clearView This signal emited when need to clear a view. for more ifnformation see the clear method.
      */
     void clearView();
 

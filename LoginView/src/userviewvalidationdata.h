@@ -29,7 +29,7 @@ class UserViewValidationData
 public:
     UserViewValidationData();
     /**
-     * @return true if member has error
+     * @return True if member has error.
      */
     bool country() const;
     bool firstName() const;
