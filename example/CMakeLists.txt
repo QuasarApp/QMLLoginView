@@ -18,13 +18,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/../CMake/ProjectOut.cmake)
-
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core QuickControls2 REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core QuickControls2 REQUIRED)
 
 if(ANDROID)
-    add_library(${PROJECT_NAME} SHARED
+    add_library(${PROJECT_NAME}
       main.cpp
       lv_example_res.qrc
     )

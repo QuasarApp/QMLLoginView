@@ -16,9 +16,16 @@ endif()
 if (NOT DEFINED LOGINVIEW_EXAMPLES)
     set(LOGINVIEW_EXAMPLES ON)
 
+    if (DEFINED TARGET_PLATFORM_TOOLCHAIN)
+        if (${TARGET_PLATFORM_TOOLCHAIN} STREQUAL "wasm32")
+            set(LOGINVIEW_EXAMPLES OFF)
+        endif()
+    endif()
+
     if (ANDROID)
         set(LOGINVIEW_EXAMPLES OFF)
     endif()
+
 endif()
 
 include(CMake/QuasarAppCITargets.cmake)
