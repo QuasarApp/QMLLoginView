@@ -6,11 +6,29 @@
 #
 
 cmake_minimum_required(VERSION 3.5)
-project(LoginViewMain)
-
-if(NOT DEFINED LOGINVIEW_EXAMPLES)
-    set (LOGINVIEW_EXAMPLES ON)
+project(LoginView LANGUAGES CXX)
+if(TARGET ${PROJECT_NAME})
+  message("The ${PROJECT_NAME} arledy included in main Project")
+  return()
 endif()
+
+
+if (NOT DEFINED LOGINVIEW_EXAMPLES)
+    set(LOGINVIEW_EXAMPLES ON)
+
+    if (ANDROID)
+        set(LOGINVIEW_EXAMPLES OFF)
+    endif()
+endif()
+
+include(CMake/QuasarAppCITargets.cmake)
+include(CMake/ccache.cmake)
+include(CMake/QtUtils.cmake)
+include(CMake/ProjectOut.cmake)
+include(CMake/crossplatform/crossplatform.cmake)
+
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick Xml REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick Xml REQUIRED)
 
 # Add sub directories
 add_subdirectory(LoginView)
@@ -18,3 +36,8 @@ add_subdirectory(LoginView)
 if (LOGINVIEW_EXAMPLES)
     add_subdirectory(example)
 endif()
+
+
+initAll()
+
+addDoc(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/doxygen.conf)

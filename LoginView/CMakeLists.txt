@@ -7,7 +7,6 @@
 
 cmake_minimum_required(VERSION 3.5)
 
-project(LoginView LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -17,19 +16,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_definitions(-DLOGIN_VIEW_LIBRARY)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/../CMake/ProjectOut.cmake)
-
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick Xml REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick Xml REQUIRED)
-
 file(GLOB SOURCE_CPP "src/*.cpp" "src/*.qrc")
 
-add_library(${PROJECT_NAME} SHARED ${SOURCE_CPP})
+add_library(${PROJECT_NAME} ${SOURCE_CPP})
 
 target_compile_definitions(LoginView
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC Qt::Core Qt::Quick Qt::Xml)
+target_link_libraries(${PROJECT_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Xml)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 set(QML_IMPORT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/src" CACHE STRING "Qt Creator extra qml import paths")
