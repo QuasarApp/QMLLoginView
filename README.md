@@ -20,9 +20,11 @@ This is a simple login window library for qml projects. The project is built wit
 ### Screenshots
 
 #### Login View
+
 ![scrinshot Login](https://user-images.githubusercontent.com/12465465/79075704-2060b400-7cfd-11ea-9891-db1671d085e9.png)
 
 #### Register View
+
 ![Screenshot register](https://user-images.githubusercontent.com/12465465/79075702-1dfe5a00-7cfd-11ea-9abe-8cfdb3820fe6.png)
 
 
@@ -76,6 +78,7 @@ import LoginViewModule 1.0
 ```
 
 ### LoginView::LVMainModel Methods
+
 ``` cpp
     /**
      * @brief setCounrySource - sets path to xml source file and extract list of countrys
@@ -95,6 +98,7 @@ import LoginViewModule 1.0
 ``` 
 
 #### LoginView::LVMainModel Signals 
+
 ``` cpp
 
     /**
@@ -123,6 +127,7 @@ import LoginViewModule 1.0
 ```
 
 #### UserData properties 
+
 ``` cpp
     Q_PROPERTY(int country READ country WRITE setCountry)
     Q_PROPERTY(QString firstName READ firstName WRITE setFirstName)
@@ -135,6 +140,7 @@ import LoginViewModule 1.0
 ## Build Example 
 
 ### Prepare
+
 1. install cqtdeployer
 2. install cqtdeployer ([gitHub releases](https://github.com/QuasarApp/CQtDeployer/releases) or [snap-store](https://snapcraft.io/cqtdeployer)))
 3. if you use snap store version of cqtdeployer add all permisions for cqdeployer.
