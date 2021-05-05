@@ -8,14 +8,17 @@ import QtQuick.Window 2.12
 Popup {
     id: root
     property var lognViewModel: null
+    property real point: metrix.pt
 
-    width: Math.min(70 * Screen.pixelDensity * (parent.width / parent.height),
-                    parent.width * 0.9);
-    height: Math.min(150 * Screen.pixelDensity, parent.height * 0.9);
-
+    width: 4 * metrix.pt
+    height: 6 * metrix.pt
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
+
+    Metrix {
+        id: metrix
+    }
 
     contentItem: LoginView {
         id: source

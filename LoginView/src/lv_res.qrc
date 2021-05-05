@@ -10,5 +10,6 @@
         <file>LoginViewModule/LVMButton.qml</file>
         <file>LoginViewModule/ValidatIonIndicator.qml</file>
         <file>LoginViewModule/LoginViewDialog.qml</file>
+        <file>LoginViewModule/Metrix.qml</file>
     </qresource>
 </RCC>

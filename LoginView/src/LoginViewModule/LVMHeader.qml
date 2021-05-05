@@ -14,33 +14,39 @@ import QtQuick.Window 2.12
 
 Control {
 
-    height: (withTitle)? 35 * Screen.pixelDensity: 15 * Screen.pixelDensity
+    height: layout.height + 15
 
     property string help: ""
     property string title: ""
-    property bool withTitle: true
+    property bool withTitle: false
+    clip: true
+
+    Metrix{
+        id: metrix
+    }
 
     ColumnLayout {
+        id: layout
         Label {
+            id: title_txt
             text: title;
-            font.pixelSize: 24
+            font.capitalization: Font.AllUppercase
             font.bold: true
             Layout.alignment: Qt.AlignLeft
             visible: withTitle
         }
 
         Label {
+            id: help_txt
+
             text: help;
             Layout.alignment: Qt.AlignLeft
         }
 
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
 
-        anchors.leftMargin: 15
-        anchors.bottomMargin: 30
+        spacing: 15
 
     }
 
@@ -49,13 +55,15 @@ Control {
         color: "#bdb9bb"
 
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 15
 
         anchors.left: parent.left
         anchors.leftMargin: 0
         anchors.right: parent.right
         anchors.rightMargin: 0
+        visible: withTitle
+        anchors.topMargin: 15
 
     }
+    anchors.bottomMargin: 15
 
 }

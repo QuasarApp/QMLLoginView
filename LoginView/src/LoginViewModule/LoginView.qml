@@ -45,16 +45,20 @@ Page {
     leftPadding: 0
     rightPadding: 0
 
+    contentHeight: content.height
 
-    contentItem:
-        Item {
-        id: conntent
+    Flickable {
+        contentWidth: content.width
+        contentHeight: content.height
 
+        ScrollBar.vertical: ScrollBar { policy: ScrollBar.AsNeeded }
+        ScrollBar.horizontal: ScrollBar { policy: ScrollBar.AsNeeded }
         GridLayout {
-
-            columns: Math.ceil(conntent.width / childWidth)
-
             id: content
+
+            columns: Math.ceil(root.width / childWidth)
+            width: root.width
+
             property int childWidth: firstNameInput.height * 10
 
             LVMTextInput {
@@ -263,13 +267,11 @@ Page {
                     loginClicked(privateRoot.isRegisterNewUser);
                 }
             }
-
-            anchors.bottomMargin: 0
-            anchors.leftMargin: 20
-            anchors.rightMargin: 20
-            anchors.fill: parent
         }
+
+        anchors.fill: parent
     }
+
 
     footer: TabBar {
         id: tabBar
