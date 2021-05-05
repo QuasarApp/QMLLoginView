@@ -166,3 +166,27 @@ chmod +x InstallerExampleLoginView.run
 
 ./InstallerExampleLoginView.run
 ```
+
+
+## Translations 
+
+This library sipprots a next languages:
+* English
+* Russian
+* Ukrainian
+* Japanese
+* Turkish 
+
+
+### Include translations
+
+For include translations into your projects you need to use the QuasarAppUtils::Locales class. See oficiald [documentation](https://quasarapp.ddns.net:3031/docs/QuasarApp/QuasarAppLib/latest/classQuasarAppUtils_1_1Locales.html)
+
+```cpp
+if(!QuasarAppUtils::Locales::init(locale, {":/lv_languages/"})) {
+    QuasarAppUtils::Params::log("Error load language : " , QuasarAppUtils::Error);
+}
+```
+
+Or you can manually load needed qm file.
+All qm files located in lv_languages folder.
