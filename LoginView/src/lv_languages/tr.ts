@@ -1,113 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="tr_TR">
 <context>
     <name>LoginView</name>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="21"/>
         <source>Create a new account</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni bir hesap oluştur</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="21"/>
         <location filename="../LoginViewModule/LoginView.qml" line="253"/>
         <source>LogIn</source>
-        <translation type="unfinished"></translation>
+        <translation>Oturum aç</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="22"/>
         <source>Please fill this form to create an account</source>
-        <translation type="unfinished"></translation>
+        <translation>Lütfen bir hesap oluşturmak için bu formu doldurun</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="23"/>
         <source>Please fill this form to login in your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Lütfen hesabınıza giriş yapmak için bu formu doldurun</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="66"/>
         <source>First Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="69"/>
-        <source>Empy or incorrect name. Please enter yuor name.</source>
-        <translation type="unfinished"></translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="84"/>
         <source>Last Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Soyadı</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="111"/>
         <source>Select you country</source>
-        <translation type="unfinished"></translation>
+        <translation>Ülkenizi seçin</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="133"/>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="137"/>
-        <source>Empty or incorrect email address. Please enter yuor name.</source>
-        <translation type="unfinished"></translation>
+        <translation>EMail</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="152"/>
         <source>Nickname</source>
-        <translation type="unfinished"></translation>
+        <translation>Takma ad</translation>
+    </message>
+    <message>
+        <location filename="../LoginViewModule/LoginView.qml" line="69"/>
+        <source>Empy or incorrect name. Please enter your name.</source>
+        <translation>Boş veya yanlış isim. Lütfen adınızı giriniz.</translation>
+    </message>
+    <message>
+        <location filename="../LoginViewModule/LoginView.qml" line="137"/>
+        <source>Empty or incorrect email address. Please enter your name.</source>
+        <translation>E-posta adresi boş veya yanlış. Lütfen adınızı giriniz.</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="156"/>
-        <source>Empty or incorrect Nickname. Please enter yuor name.</source>
-        <translation type="unfinished"></translation>
+        <source>Empty or incorrect Nickname. Please enter your name.</source>
+        <translation>Boş veya yanlış Takma ad. Lütfen adınızı giriniz.</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="178"/>
-        <source>Pasword</source>
-        <translation type="unfinished"></translation>
+        <source>password</source>
+        <translation>Parola</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="192"/>
-        <source>Confirm pasword</source>
-        <translation type="unfinished"></translation>
+        <source>Confirm password</source>
+        <translation>Şifreyi Onayla</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="204"/>
         <source>Forgot password</source>
-        <translation type="unfinished"></translation>
+        <translation>Parolanızı mı unuttunuz</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="224"/>
         <source>I accept the Terms of use</source>
-        <translation type="unfinished"></translation>
+        <translation>Kullanım şartlarını kabul ediyorum</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="231"/>
         <source>Show terms of use</source>
-        <translation type="unfinished"></translation>
+        <translation>Kullanım şartlarını göster</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="252"/>
         <source>SignUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydol</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="283"/>
         <source>Login In</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş yap</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="286"/>
         <source>Sign Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydol</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="349"/>
         <source>Password must match the 1st field and the password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Parola 1. alanla eşleşmelidir ve parola boş olamaz</translation>
     </message>
 </context>
 <context>
@@ -115,32 +115,32 @@
     <message>
         <location filename="../lvmainmodel.cpp" line="204"/>
         <source>must be longer than 8 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>8 karakterden uzun olmalıdır</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="208"/>
         <source>must contain numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>sayı içermelidir</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="212"/>
         <source>must contain small chars</source>
-        <translation type="unfinished"></translation>
+        <translation>Küçük karakterler içermelidir</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="216"/>
         <source>must contain large chars</source>
-        <translation type="unfinished"></translation>
+        <translation>büyük karakterler içermelidir</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="220"/>
         <source>must contain extra chars (!@#$%^&amp;*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekstra karakterler içermelidir (! @ # $% ^ &amp; *)</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="223"/>
         <source>Password requirements: </source>
-        <translation type="unfinished"></translation>
+        <translation>Parola gereksinimleri:</translation>
     </message>
 </context>
 </TS>
