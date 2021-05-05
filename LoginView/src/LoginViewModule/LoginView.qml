@@ -50,7 +50,7 @@ Page {
     Flickable {
         contentWidth: content.width
         contentHeight: content.height
-
+        clip: true
         ScrollBar.vertical: ScrollBar { policy: ScrollBar.AsNeeded }
         ScrollBar.horizontal: ScrollBar { policy: ScrollBar.AsNeeded }
         GridLayout {
