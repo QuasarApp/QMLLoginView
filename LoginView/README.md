@@ -62,23 +62,3 @@ Simple Qml notification service for qml applications.
  }
 
 ```
-
-
-### Translations
-
-The LoginView sopports next languages:
-* xxxxx
-
-#### Include 
-
-For include use the QuasarAppUtils::Locales class. see oficial [documentation](https://quasarapp.ddns.net:3031/docs/QuasarApp/QuasarAppLib/latest/classQuasarAppUtils_1_1Locales.html#a8eba3973cc4e88697a41125de0c9653f)
-
-
-```cpp
-if(!QuasarAppUtils::Locales::init(locale, {":/lv_languages/"})){
-    QuasarAppUtils::Params::log("Error load language : " , QuasarAppUtils::Error);
-}
-```
-
-Or you can monualy load needed qm file.
-All qm files located in lv_languages folder.
