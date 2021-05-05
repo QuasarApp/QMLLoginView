@@ -186,4 +186,6 @@ For include translations into your projects you need to use the QuasarAppUtils::
 if(!QuasarAppUtils::Locales::init(locale, {":/lv_languages/"})) {
     QuasarAppUtils::Params::log("Error load language : " , QuasarAppUtils::Error);
 }
-```
+
+Or you can manually load needed qm file.
+All qm files located in lv_languages folder.
