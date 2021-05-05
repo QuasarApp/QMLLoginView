@@ -26,4 +26,13 @@ target_compile_definitions(LoginView
 target_link_libraries(${PROJECT_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Xml)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
+set(LANGS ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/en.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/ru.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/ja.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/tr.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/ua.ts)
+
+
+prepareQM( ${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR} "${LANGS}")
+
 set(QML_IMPORT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/src" CACHE STRING "Qt Creator extra qml import paths")
