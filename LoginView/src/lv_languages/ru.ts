@@ -1,113 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>LoginView</name>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="21"/>
         <source>Create a new account</source>
-        <translation type="unfinished"></translation>
+        <translation>Создать новый аккаунт</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="21"/>
         <location filename="../LoginViewModule/LoginView.qml" line="253"/>
         <source>LogIn</source>
-        <translation type="unfinished"></translation>
+        <translation>Логин</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="22"/>
         <source>Please fill this form to create an account</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, заполните эту форму, чтобы создать аккаунт</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="23"/>
         <source>Please fill this form to login in your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, заполните эту форму, чтобы войти в аккаунт</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="66"/>
         <source>First Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="69"/>
-        <source>Empy or incorrect name. Please enter yuor name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="84"/>
         <source>Last Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Фамилия</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="111"/>
         <source>Select you country</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите вашу страну</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="133"/>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="137"/>
-        <source>Empty or incorrect email address. Please enter yuor name.</source>
-        <translation type="unfinished"></translation>
+        <translation>EMail</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="152"/>
         <source>Nickname</source>
-        <translation type="unfinished"></translation>
+        <translation>Никнейм</translation>
+    </message>
+    <message>
+        <location filename="../LoginViewModule/LoginView.qml" line="69"/>
+        <source>Empy or incorrect name. Please enter your name.</source>
+        <translation>Незаполненная строка или неподходящее имя.</translation>
+    </message>
+    <message>
+        <location filename="../LoginViewModule/LoginView.qml" line="137"/>
+        <source>Empty or incorrect email address. Please enter your name.</source>
+        <translation>Незаполненная строка или неверный email.</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="156"/>
-        <source>Empty or incorrect Nickname. Please enter yuor name.</source>
-        <translation type="unfinished"></translation>
+        <source>Empty or incorrect Nickname. Please enter your name.</source>
+        <translation>Незаполненная строка или некорректный никнейм.</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="178"/>
-        <source>Pasword</source>
-        <translation type="unfinished"></translation>
+        <source>password</source>
+        <translation>Пароль</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="192"/>
-        <source>Confirm pasword</source>
-        <translation type="unfinished"></translation>
+        <source>Confirm password</source>
+        <translation>Подтвердить Пароль</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="204"/>
         <source>Forgot password</source>
-        <translation type="unfinished"></translation>
+        <translation>Забыл пароль</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="224"/>
         <source>I accept the Terms of use</source>
-        <translation type="unfinished"></translation>
+        <translation>Я принимаю условия использования</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="231"/>
         <source>Show terms of use</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать условия использования</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="252"/>
         <source>SignUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Регистрация</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="283"/>
         <source>Login In</source>
-        <translation type="unfinished"></translation>
+        <translation>Войти</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="286"/>
         <source>Sign Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Регистрация</translation>
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="349"/>
         <source>Password must match the 1st field and the password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль должен соответствовать 1-му полю, и не может быть пустым.</translation>
     </message>
 </context>
 <context>
@@ -115,32 +115,32 @@
     <message>
         <location filename="../lvmainmodel.cpp" line="204"/>
         <source>must be longer than 8 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Должен быть длиннее 8 символов</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="208"/>
         <source>must contain numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Должен содержать числа</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="212"/>
         <source>must contain small chars</source>
-        <translation type="unfinished"></translation>
+        <translation>Должен содержать строчные буквы</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="216"/>
         <source>must contain large chars</source>
-        <translation type="unfinished"></translation>
+        <translation>Должен содержать заглавные буквы</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="220"/>
         <source>must contain extra chars (!@#$%^&amp;*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Должен содержать особые символы (! @ # $% ^ &amp; *)</translation>
     </message>
     <message>
         <location filename="../lvmainmodel.cpp" line="223"/>
         <source>Password requirements: </source>
-        <translation type="unfinished"></translation>
+        <translation>Требования к паролю:</translation>
     </message>
 </context>
 </TS>

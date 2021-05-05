@@ -66,7 +66,7 @@ Page {
                 placeholderText: qsTr("First Name")
                 Layout.fillWidth: true
                 visible: privateRoot.isRegisterNewUser && privateRoot.firstName
-                tooltip: (hasError)? qsTr("Empy or incorrect name. Please enter yuor name."):  ""
+                tooltip: (hasError)? qsTr("Empy or incorrect name. Please enter your name."):  ""
                 hasError: (privateRoot.errors && privateRoot.errors.firstName);
                 onTextChanged: {
                     if (lognViewModel) {
@@ -134,7 +134,7 @@ Page {
                 Layout.fillWidth: true
                 visible: privateRoot.email
                 hasError: (privateRoot.errors && privateRoot.errors.email);
-                tooltip: (hasError)? qsTr("Empty or incorrect email address. Please enter yuor name.") : ""
+                tooltip: (hasError)? qsTr("Empty or incorrect email address. Please enter your name.") : ""
                 onTextChanged: {
                     if (lognViewModel) {
                         lognViewModel.data.email = text;
@@ -153,7 +153,7 @@ Page {
                 Layout.fillWidth: true
                 visible:  privateRoot.nickName
                 hasError: (privateRoot.errors && privateRoot.errors.nickname);
-                tooltip: (hasError)? qsTr("Empty or incorrect Nickname. Please enter yuor name.") : ""
+                tooltip: (hasError)? qsTr("Empty or incorrect Nickname. Please enter your name.") : ""
                 onTextChanged: {
                     if (lognViewModel) {
                         lognViewModel.data.nickname = text;
@@ -175,7 +175,7 @@ Page {
 
             LVMTextInput {
                 id: pass1
-                placeholderText: qsTr("Pasword")
+                placeholderText: qsTr("password")
                 Layout.fillWidth: true
                 hasError: (privateRoot.errors && privateRoot.errors.rawPassword);
                 tooltip: (hasError)? lognViewModel.passwordError : ""
@@ -189,7 +189,7 @@ Page {
 
             LVMTextInput {
                 id: pass2
-                placeholderText: qsTr("Confirm pasword")
+                placeholderText: qsTr("Confirm password")
                 Layout.fillWidth: true
                 visible: privateRoot.isRegisterNewUser && privateRoot.password
 
