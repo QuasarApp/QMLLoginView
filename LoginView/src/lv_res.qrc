@@ -11,10 +11,10 @@
         <file>LoginViewModule/ValidatIonIndicator.qml</file>
         <file>LoginViewModule/LoginViewDialog.qml</file>
         <file>LoginViewModule/Metrix.qml</file>
-        <file>lv_languages/ua.qm</file>
         <file>lv_languages/tr.qm</file>
         <file>lv_languages/ru.qm</file>
         <file>lv_languages/ja.qm</file>
         <file>lv_languages/en.qm</file>
+        <file>lv_languages/uk.qm</file>
     </qresource>
 </RCC>
