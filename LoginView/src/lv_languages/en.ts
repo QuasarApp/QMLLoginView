@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="21"/>
-        <location filename="../LoginViewModule/LoginView.qml" line="253"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="260"/>
         <source>LogIn</source>
         <translation>LogIn</translation>
     </message>
@@ -25,57 +25,57 @@
         <translation>Please fill this form to login in your account</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="66"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="65"/>
         <source>First Name</source>
         <translation>First Name</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="84"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="83"/>
         <source>Last Name</source>
         <translation>Last Name</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="111"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="110"/>
         <source>Select you country</source>
         <translation>Select you country</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="133"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="132"/>
         <source>EMail</source>
         <translation>EMail</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="152"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="151"/>
         <source>Nickname</source>
         <translation>Nickname</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="69"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="68"/>
         <source>Empy or incorrect name. Please enter your name.</source>
         <translation>Empy or incorrect name. Please enter your name.</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="137"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="136"/>
         <source>Empty or incorrect email address. Please enter your name.</source>
         <translation>Empty or incorrect email address. Please enter your name.</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="156"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="155"/>
         <source>Empty or incorrect Nickname. Please enter your name.</source>
         <translation>Empty or incorrect Nickname. Please enter your name.</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="178"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="177"/>
         <source>password</source>
         <translation>password</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="192"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="191"/>
         <source>Confirm password</source>
         <translation>Confirm password</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="204"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="203"/>
         <source>Forgot password</source>
         <translation>Forgot password</translation>
     </message>
@@ -90,22 +90,22 @@
         <translation>Show terms of use</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="252"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="259"/>
         <source>SignUp</source>
         <translation>SignUp</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="283"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="285"/>
         <source>Login In</source>
         <translation>Login In</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="286"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="288"/>
         <source>Sign Up</source>
         <translation>Sign Up</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="349"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="352"/>
         <source>Password must match the 1st field and the password cannot be empty</source>
         <translation>Password must match the 1st field and the password cannot be empty</translation>
     </message>

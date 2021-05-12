@@ -30,6 +30,9 @@ Control {
         Label {
             id: title_txt
             text: title;
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+
             font.capitalization: Font.AllUppercase
             font.bold: true
             Layout.alignment: Qt.AlignLeft
@@ -38,9 +41,10 @@ Control {
 
         Label {
             id: help_txt
-
+            wrapMode: Text.WordWrap
             text: help;
             Layout.alignment: Qt.AlignLeft
+            Layout.fillWidth: true
         }
 
         anchors.left: parent.left

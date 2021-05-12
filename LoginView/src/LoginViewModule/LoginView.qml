@@ -45,8 +45,6 @@ Page {
     leftPadding: 0
     rightPadding: 0
 
-    contentHeight: content.height
-
     Flickable {
         contentWidth: content.width
         contentHeight: content.height
@@ -56,10 +54,11 @@ Page {
         GridLayout {
             id: content
 
-            columns: Math.ceil(root.width / childWidth)
+            columns: Math.floor(root.width / childWidth)
             width: root.width
-
-            property int childWidth: firstNameInput.height * 10
+            columnSpacing: 15
+            rowSpacing: 0
+            property int childWidth: firstNameInput.height * 4
 
             LVMTextInput {
                 id: firstNameInput
@@ -101,7 +100,7 @@ Page {
             Item {
                 // separator
                 Layout.preferredHeight: 0
-                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.columnSpan: Math.max(content.columns, 1)
             }
 
@@ -122,7 +121,7 @@ Page {
             Item {
                 // separator
                 Layout.preferredHeight: 0
-                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.columnSpan: Math.max(content.columns, 1)
             }
 
@@ -216,6 +215,7 @@ Page {
                 // separator
                 Layout.preferredHeight: 0
                 Layout.fillWidth: true
+
                 Layout.columnSpan: Math.max(content.columns, 1)
             }
 
@@ -245,56 +245,59 @@ Page {
                 Layout.columnSpan: Math.max(content.columns, 1)
             }
 
-            LVMButton {
-                text: privateRoot.acceptButtonText.length?
-                          privateRoot.acceptButtonText:
-                          (privateRoot.isRegisterNewUser)?
-                              qsTr("SignUp"):
-                              qsTr("LogIn")
-
-                visible: true
-                enabled: privateRoot.enableAccept(privateRoot.errors, privateRoot.isRegisterNewUser,
-                                                  privateRoot.password, pass2.hasError, termOfUse.checked,
-                                                  privateRoot.termOfuse)
-                onClicked: {
-                    if (lognViewModel) {
-                        if (privateRoot.isRegisterNewUser) {
-                            lognViewModel.registerRequest();
-                        } else {
-                            lognViewModel.loginRequest();
-                        }
-                    }
-                    loginClicked(privateRoot.isRegisterNewUser);
-                }
-            }
         }
 
         anchors.fill: parent
     }
 
 
-    footer: TabBar {
-        id: tabBar
+    footer: ColumnLayout {
+        LVMButton {
+            text: privateRoot.acceptButtonText.length?
+                      privateRoot.acceptButtonText:
+                      (privateRoot.isRegisterNewUser)?
+                          qsTr("SignUp"):
+                          qsTr("LogIn")
 
-        visible: privateRoot.loginPage && privateRoot.registerPage
-
-        currentIndex: privateRoot.pageToIndex(privateRoot.currentPage)
-        TabButton {
-            text: qsTr("Login In")
-        }
-        TabButton {
-            text: qsTr("Sign Up")
-        }
-
-        onCurrentIndexChanged: {
-            if (lognViewModel) {
-                if (currentIndex)
-                    lognViewModel.setCurrentPage(ViewComponents.sigupPage)
-                else
-                    lognViewModel.setCurrentPage(ViewComponents.loginPage)
-
+            visible: true
+            enabled: privateRoot.enableAccept(privateRoot.errors, privateRoot.isRegisterNewUser,
+                                              privateRoot.password, pass2.hasError, termOfUse.checked,
+                                              privateRoot.termOfuse)
+            onClicked: {
+                if (lognViewModel) {
+                    if (privateRoot.isRegisterNewUser) {
+                        lognViewModel.registerRequest();
+                    } else {
+                        lognViewModel.loginRequest();
+                    }
+                }
+                loginClicked(privateRoot.isRegisterNewUser);
             }
         }
+
+        TabBar {
+                id: tabBar
+
+                visible: privateRoot.loginPage && privateRoot.registerPage
+                Layout.fillWidth: true
+                currentIndex: privateRoot.pageToIndex(privateRoot.currentPage)
+                TabButton {
+                    text: qsTr("Login In")
+                }
+                TabButton {
+                    text: qsTr("Sign Up")
+                }
+
+                onCurrentIndexChanged: {
+                    if (lognViewModel) {
+                        if (currentIndex)
+                            lognViewModel.setCurrentPage(ViewComponents.sigupPage)
+                        else
+                            lognViewModel.setCurrentPage(ViewComponents.loginPage)
+
+                    }
+                }
+            }
     }
 
 

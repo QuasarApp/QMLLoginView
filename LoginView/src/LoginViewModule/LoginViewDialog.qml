@@ -9,9 +9,10 @@ Popup {
     id: root
     property var lognViewModel: null
     property real point: metrix.pt
+    property real controlPtMaterial: metrix.controlPtMaterial
 
-    width: 4 * metrix.pt
-    height: 6 * metrix.pt
+    width: Math.max(6 * metrix.controlPtMaterial, parent.width * 0.5)
+    height: Math.max(6 * metrix.controlPtMaterial, parent.height * 0.5)
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2

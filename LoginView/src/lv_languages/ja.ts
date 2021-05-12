@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="21"/>
-        <location filename="../LoginViewModule/LoginView.qml" line="253"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="260"/>
         <source>LogIn</source>
         <translation>ログインする</translation>
     </message>
@@ -25,57 +25,57 @@
         <translation>アカウントにログインするには、このフォームに記入してください</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="66"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="65"/>
         <source>First Name</source>
         <translation>ファーストネーム</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="84"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="83"/>
         <source>Last Name</source>
         <translation>苗字</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="111"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="110"/>
         <source>Select you country</source>
         <translation>国を選択してください</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="133"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="132"/>
         <source>EMail</source>
         <translation>Eメール</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="152"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="151"/>
         <source>Nickname</source>
         <translation>ニックネーム</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="69"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="68"/>
         <source>Empy or incorrect name. Please enter your name.</source>
         <translation>名前が空または正しくありません。 お名前を入力してください。</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="137"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="136"/>
         <source>Empty or incorrect email address. Please enter your name.</source>
         <translation>空または間違ったメールアドレス。 お名前を入力してください。</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="156"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="155"/>
         <source>Empty or incorrect Nickname. Please enter your name.</source>
         <translation>空または間違ったニックネーム。 お名前を入力してください。</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="178"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="177"/>
         <source>password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="192"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="191"/>
         <source>Confirm password</source>
         <translation>パスワードを認証する</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="204"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="203"/>
         <source>Forgot password</source>
         <translation>パスワードをお忘れですか</translation>
     </message>
@@ -90,22 +90,22 @@
         <translation>利用規約を表示する</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="252"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="259"/>
         <source>SignUp</source>
         <translation>サインアップ</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="283"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="285"/>
         <source>Login In</source>
         <translation>ログイン</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="286"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="288"/>
         <source>Sign Up</source>
         <translation>サインアップ</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="349"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="352"/>
         <source>Password must match the 1st field and the password cannot be empty</source>
         <translation>パスワードは最初のフィールドと一致する必要があり、パスワードを空にすることはできません</translation>
     </message>

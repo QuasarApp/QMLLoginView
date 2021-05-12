@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../LoginViewModule/LoginView.qml" line="21"/>
-        <location filename="../LoginViewModule/LoginView.qml" line="253"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="260"/>
         <source>LogIn</source>
         <translation>Логин</translation>
     </message>
@@ -25,57 +25,57 @@
         <translation>Пожалуйста, заполните эту форму, чтобы войти в аккаунт</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="66"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="65"/>
         <source>First Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="84"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="83"/>
         <source>Last Name</source>
         <translation>Фамилия</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="111"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="110"/>
         <source>Select you country</source>
         <translation>Выберите вашу страну</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="133"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="132"/>
         <source>EMail</source>
         <translation>EMail</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="152"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="151"/>
         <source>Nickname</source>
         <translation>Никнейм</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="69"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="68"/>
         <source>Empy or incorrect name. Please enter your name.</source>
         <translation>Незаполненная строка или неподходящее имя.</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="137"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="136"/>
         <source>Empty or incorrect email address. Please enter your name.</source>
         <translation>Незаполненная строка или неверный email.</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="156"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="155"/>
         <source>Empty or incorrect Nickname. Please enter your name.</source>
         <translation>Незаполненная строка или некорректный никнейм.</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="178"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="177"/>
         <source>password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="192"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="191"/>
         <source>Confirm password</source>
         <translation>Подтвердить Пароль</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="204"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="203"/>
         <source>Forgot password</source>
         <translation>Забыл пароль</translation>
     </message>
@@ -90,22 +90,22 @@
         <translation>Показать условия использования</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="252"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="259"/>
         <source>SignUp</source>
         <translation>Регистрация</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="283"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="285"/>
         <source>Login In</source>
         <translation>Войти</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="286"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="288"/>
         <source>Sign Up</source>
         <translation>Регистрация</translation>
     </message>
     <message>
-        <location filename="../LoginViewModule/LoginView.qml" line="349"/>
+        <location filename="../LoginViewModule/LoginView.qml" line="352"/>
         <source>Password must match the 1st field and the password cannot be empty</source>
         <translation>Пароль должен соответствовать 1-му полю, и не может быть пустым.</translation>
     </message>
