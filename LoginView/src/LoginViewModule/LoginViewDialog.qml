@@ -9,6 +9,7 @@ Popup {
     id: root
     property var lognViewModel: null
     property real point: metrix.pt
+    property bool singleColumn: false
 
     width: Math.max(5 * point, parent.width * 0.5)
     height: Math.max(4 * point, parent.height * 0.5)
@@ -23,7 +24,7 @@ Popup {
     contentItem: LoginView {
         id: source
         lognViewModel: root.lognViewModel
-
+        singleColumn: root.singleColumn
         onLoginClicked: {
             root.close();
         }

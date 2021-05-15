@@ -24,6 +24,7 @@ Page {
     }
 
     property var lognViewModel: null
+    property bool singleColumn: false
 
     signal loginClicked(var isregister);
 
@@ -54,7 +55,7 @@ Page {
         GridLayout {
             id: content
 
-            columns: Math.floor(root.width / childWidth)
+            columns: (singleColumn)? 1: Math.floor(root.width / childWidth)
             width: root.width
             columnSpacing: 15
             rowSpacing: 0
