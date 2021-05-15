@@ -19,6 +19,7 @@ Control {
     property string help: ""
     property string title: ""
     property bool withTitle: false
+
     clip: true
 
     Metrix{
