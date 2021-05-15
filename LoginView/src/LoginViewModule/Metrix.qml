@@ -18,6 +18,7 @@ Item {
     readonly property real pt: getfactor(dsm) * sm
     readonly property real controlPtMaterial: Material.buttonHeight
     readonly property real gamePt: (width < height) ? width / pointCount : height / pointCount;
+    readonly property real fontPoints: textMetrics.height;
 
     function getfactor(dsm) {
         if ( dsm < 70) {
@@ -26,6 +27,10 @@ Item {
             return 2;
         } else
             return 4;
+    }
+
+    FontMetrics {
+        id: textMetrics
     }
 
     anchors.fill: parent;
