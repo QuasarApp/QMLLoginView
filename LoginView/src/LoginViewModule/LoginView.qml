@@ -24,7 +24,7 @@ Page {
     }
 
     property var lognViewModel: null
-    property bool singleColumn: false
+    property bool singleColumn: privateRoot.widgetsCount <= 1
 
     signal loginClicked(var isregister);
 
