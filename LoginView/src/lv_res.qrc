@@ -16,5 +16,10 @@
         <file>lv_languages/ja.qm</file>
         <file>lv_languages/en.qm</file>
         <file>lv_languages/uk.qm</file>
+        <file>lv_languages/pl.qm</file>
+        <file>lv_languages/es.qm</file>
+        <file>lv_languages/fr.qm</file>
+        <file>lv_languages/de.qm</file>
+        <file>lv_languages/zh.qm</file>
     </qresource>
 </RCC>

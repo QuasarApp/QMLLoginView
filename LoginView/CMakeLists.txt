@@ -30,8 +30,12 @@ set(LANGS ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/en.ts
           ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/ru.ts
           ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/ja.ts
           ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/tr.ts
-          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/uk.ts)
-
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/uk.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/zh.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/de.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/fr.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/es.ts
+          ${CMAKE_CURRENT_SOURCE_DIR}/src/lv_languages/pl.ts)
 
 prepareQM( ${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR} "${LANGS}")
 
